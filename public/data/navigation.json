@@ -1,0 +1,16 @@
+[
+  { "label": "Home", "href": "/" },
+  {
+    "label": "Woman",
+    "href": "/woman",
+    "children": [
+      { "label": "Winter Edit 2025/26", "href": "/woman/winter-edit" },
+      { "label": "Pure Pashmina", "href": "/woman/pure-pashmina" }
+    ]
+  },
+  { "label": "Man", "href": "/man" },
+  { "label": "Pashmina", "href": "/products" },
+  { "label": "Craft Revival", "href": "/projects" },
+  { "label": "Discover", "href": "/about" }
+]
+

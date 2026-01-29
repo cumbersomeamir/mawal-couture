@@ -1,0 +1,408 @@
+[
+  {
+    "id": "w-winter-001",
+    "title": "Wool Pheran - Ivory Cascade",
+    "slug": "wool-pheran-ivory-cascade",
+    "price": 450,
+    "currency": "USD",
+    "category": "Pherans",
+    "collection": "winter-edit-2025-26",
+    "gender": "woman",
+    "tags": ["pheran", "wool", "winter", "handwoven"],
+    "description": "A refined wool pheran in soft ivory, featuring traditional khatamband detailing and hand-embroidered borders. Perfect for Kashmir winters.",
+    "images": [
+      "https://images.unsplash.com/photo-1539008835657-9e8e9680c956?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=1200&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "w-winter-002",
+    "title": "Embroidered Wool Coat - Charcoal",
+    "slug": "embroidered-wool-coat-charcoal",
+    "price": 520,
+    "currency": "USD",
+    "category": "Coats",
+    "collection": "winter-edit-2025-26",
+    "gender": "woman",
+    "tags": ["coat", "wool", "winter", "embroidered"],
+    "description": "Structured wool coat with subtle tilla embroidery along the neckline. Timeless elegance meets Kashmiri craftsmanship.",
+    "images": [
+      "https://images.unsplash.com/photo-1544022613-e87ca75a784a?q=80&w=1200&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "w-winter-003",
+    "title": "Pashmina Shawl - Burgundy Dream",
+    "slug": "pashmina-shawl-burgundy-dream",
+    "price": 380,
+    "currency": "USD",
+    "category": "Pashmina",
+    "collection": "winter-edit-2025-26",
+    "gender": "woman",
+    "tags": ["pashmina", "shawl", "winter"],
+    "description": "Handwoven pure pashmina in rich burgundy with delicate sozni embroidery. A statement piece for winter occasions.",
+    "images": [
+      "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=1200&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "w-festive-001",
+    "title": "Festive Pheran - Gold Mist",
+    "slug": "festive-pheran-gold-mist",
+    "price": 680,
+    "currency": "USD",
+    "category": "Pherans",
+    "collection": "festive-edit-2025-26",
+    "gender": "woman",
+    "tags": ["pheran", "festive", "tilla", "wedding"],
+    "description": "Luxurious festive pheran with intricate tilla work and aari embroidery. Perfect for weddings and celebrations.",
+    "images": [
+      "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1200&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "w-festive-002",
+    "title": "Velvet Kaftan - Ruby",
+    "slug": "velvet-kaftan-ruby",
+    "price": 550,
+    "currency": "USD",
+    "category": "Kaftan",
+    "collection": "festive-edit-2025-26",
+    "gender": "woman",
+    "tags": ["kaftan", "velvet", "festive"],
+    "description": "Flowing velvet kaftan in deep ruby with hand-stitched gold detailing. Effortless elegance for festive evenings.",
+    "images": [
+      "https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=1200&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "w-festive-003",
+    "title": "Embellished Gown - Champagne",
+    "slug": "embellished-gown-champagne",
+    "price": 780,
+    "currency": "USD",
+    "category": "Gowns",
+    "collection": "festive-edit-2025-26",
+    "gender": "woman",
+    "tags": ["gown", "festive", "embellished"],
+    "description": "Floor-length gown in champagne silk with hand-embroidered motifs. A showstopper for grand celebrations.",
+    "images": [
+      "https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1200&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "w-khandar-001",
+    "title": "Khandar Pheran - Sage",
+    "slug": "khandar-pheran-sage",
+    "price": 420,
+    "currency": "USD",
+    "category": "Pherans",
+    "collection": "khandar",
+    "gender": "woman",
+    "tags": ["pheran", "khandar", "traditional"],
+    "description": "Traditional Khandar pheran in sage green with authentic regional embroidery patterns.",
+    "images": [
+      "https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1200&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "w-khandar-002",
+    "title": "Khandar Stole - Ocean Blue",
+    "slug": "khandar-stole-ocean-blue",
+    "price": 220,
+    "currency": "USD",
+    "category": "Stoles",
+    "collection": "khandar",
+    "gender": "woman",
+    "tags": ["stole", "khandar", "handwoven"],
+    "description": "Handwoven stole with Khandar-inspired motifs in deep ocean blue.",
+    "images": [
+      "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?q=80&w=1200&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "w-matamaal-001",
+    "title": "Restored Vintage Pheran - Heritage",
+    "slug": "restored-vintage-pheran-heritage",
+    "price": 850,
+    "currency": "USD",
+    "category": "Pherans",
+    "collection": "matamaal",
+    "gender": "woman",
+    "tags": ["vintage", "restored", "heritage", "matamaal"],
+    "description": "A lovingly restored vintage pheran from our Project Matamaal initiative. Each piece carries generations of history.",
+    "images": [
+      "https://images.unsplash.com/photo-1558171813-4c088753af8f?q=80&w=1200&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "w-pashmina-001",
+    "title": "Pure Pashmina Shawl - Meadow",
+    "slug": "pure-pashmina-shawl-meadow",
+    "price": 350,
+    "currency": "USD",
+    "category": "Pashmina",
+    "collection": "pure-pashmina",
+    "gender": "woman",
+    "tags": ["pashmina", "shawl", "handwoven"],
+    "description": "Handwoven pure pashmina shawl with subtle floral motifs. Lightweight, warm, and exquisitely soft.",
+    "images": [
+      "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=1200&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "w-pashmina-002",
+    "title": "Sozni Embroidered Pashmina - Rose",
+    "slug": "sozni-embroidered-pashmina-rose",
+    "price": 480,
+    "currency": "USD",
+    "category": "Pashmina",
+    "collection": "pure-pashmina",
+    "gender": "woman",
+    "tags": ["pashmina", "sozni", "embroidered"],
+    "description": "Pure pashmina with delicate sozni needlework in rose pink. Months of artisan craftsmanship in every piece.",
+    "images": [
+      "https://images.unsplash.com/photo-1520975914266-3e3e9f38b7a2?q=80&w=1200&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "w-pashmina-003",
+    "title": "Kani Pashmina - Paisley Garden",
+    "slug": "kani-pashmina-paisley-garden",
+    "price": 1200,
+    "currency": "USD",
+    "category": "Pashmina",
+    "collection": "pure-pashmina",
+    "gender": "woman",
+    "tags": ["pashmina", "kani", "handwoven"],
+    "description": "Exquisite Kani pashmina with traditional paisley patterns. A masterpiece that takes months to complete.",
+    "images": [
+      "https://images.unsplash.com/photo-1514996937319-344454492b37?q=80&w=1200&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "w-velvet-001",
+    "title": "Velvet Jacket - Emerald",
+    "slug": "velvet-jacket-emerald",
+    "price": 420,
+    "currency": "USD",
+    "category": "Jackets",
+    "collection": "velvets",
+    "gender": "woman",
+    "tags": ["velvet", "jacket", "festive"],
+    "description": "Structured velvet jacket in rich emerald with delicate hand-embroidery. Tailored fit for celebratory occasions.",
+    "images": [
+      "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=1200&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "w-velvet-002",
+    "title": "Velvet Coat - Midnight",
+    "slug": "velvet-coat-midnight",
+    "price": 580,
+    "currency": "USD",
+    "category": "Coats",
+    "collection": "velvets",
+    "gender": "woman",
+    "tags": ["velvet", "coat", "winter"],
+    "description": "Long velvet coat in midnight blue with tilla border work. Luxurious warmth meets Kashmiri artistry.",
+    "images": [
+      "https://images.unsplash.com/photo-1548624313-0396c75e4b1a?q=80&w=1200&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "w-kaftan-001",
+    "title": "Silk Kaftan - Azure",
+    "slug": "silk-kaftan-azure",
+    "price": 380,
+    "currency": "USD",
+    "category": "Kaftan",
+    "collection": "kaftan",
+    "gender": "woman",
+    "tags": ["kaftan", "silk", "casual"],
+    "description": "Flowing silk kaftan in azure blue with subtle embroidery. Effortless elegance for warm evenings.",
+    "images": [
+      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "w-tilla-001",
+    "title": "Tilla Work Shawl - Royal",
+    "slug": "tilla-work-shawl-royal",
+    "price": 650,
+    "currency": "USD",
+    "category": "Shawls",
+    "collection": "tilla-handwork",
+    "gender": "woman",
+    "tags": ["tilla", "shawl", "handwork"],
+    "description": "Magnificent tilla work shawl with intricate gold thread embroidery. A royal statement piece.",
+    "images": [
+      "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=1200&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "w-casual-001",
+    "title": "Cotton Kurta - Blossom",
+    "slug": "cotton-kurta-blossom",
+    "price": 180,
+    "currency": "USD",
+    "category": "Kurtas",
+    "collection": "casual-wear",
+    "gender": "woman",
+    "tags": ["kurta", "cotton", "casual"],
+    "description": "Comfortable cotton kurta with delicate hand-block prints. Perfect for everyday elegance.",
+    "images": [
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=1200&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "w-stole-001",
+    "title": "Handwoven Stole - Stripe",
+    "slug": "handwoven-stole-stripe",
+    "price": 180,
+    "currency": "USD",
+    "category": "Stoles",
+    "collection": "silk-roots",
+    "gender": "woman",
+    "tags": ["stole", "handloom", "silk"],
+    "description": "A versatile handwoven silk stole with traditional stripes. Perfect for everyday wear and layering.",
+    "images": [
+      "https://images.unsplash.com/photo-1503342394128-480259e0d7d2?q=80&w=1200&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "m-winter-001",
+    "title": "Wool Pheran - Slate Grey",
+    "slug": "wool-pheran-slate-grey",
+    "price": 480,
+    "currency": "USD",
+    "category": "Pherans",
+    "collection": "winter-edit-2025-26",
+    "gender": "man",
+    "tags": ["pheran", "wool", "winter"],
+    "description": "Structured wool pheran in slate grey with khatamband detailing. Heritage craftsmanship for the modern man.",
+    "images": [
+      "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=1200&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "m-winter-002",
+    "title": "Tweed Jacket - Olive",
+    "slug": "tweed-jacket-olive",
+    "price": 420,
+    "currency": "USD",
+    "category": "Jackets",
+    "collection": "winter-edit-2025-26",
+    "gender": "man",
+    "tags": ["jacket", "tweed", "winter"],
+    "description": "Classic tweed jacket with subtle hand-stitched details. Timeless sophistication for winter.",
+    "images": [
+      "https://images.unsplash.com/photo-1617137968427-85924c800a22?q=80&w=1200&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "m-winter-003",
+    "title": "Wool Shawl - Charcoal",
+    "slug": "wool-shawl-charcoal",
+    "price": 280,
+    "currency": "USD",
+    "category": "Shawls",
+    "collection": "winter-edit-2025-26",
+    "gender": "man",
+    "tags": ["shawl", "wool", "winter"],
+    "description": "Fine wool shawl in charcoal with subtle border embroidery. Elegant warmth for Kashmir winters.",
+    "images": [
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1200&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "m-khandar-001",
+    "title": "Khandar Pheran - Earth",
+    "slug": "khandar-pheran-earth",
+    "price": 450,
+    "currency": "USD",
+    "category": "Pherans",
+    "collection": "khandar",
+    "gender": "man",
+    "tags": ["pheran", "khandar", "traditional"],
+    "description": "Traditional Khandar pheran in earthy tones with authentic regional craftsmanship.",
+    "images": [
+      "https://images.unsplash.com/photo-1490578474895-699cd4e2cf59?q=80&w=1200&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "m-vanguard-001",
+    "title": "Vanguard Pheran - Classic Black",
+    "slug": "vanguard-pheran-classic-black",
+    "price": 520,
+    "currency": "USD",
+    "category": "Pherans",
+    "collection": "vanguard-pherans",
+    "gender": "man",
+    "tags": ["pheran", "vanguard", "modern"],
+    "description": "Modern interpretation of the classic pheran in black wool. Clean lines meet heritage construction.",
+    "images": [
+      "https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?q=80&w=1200&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "m-vanguard-002",
+    "title": "Vanguard Pheran - Navy",
+    "slug": "vanguard-pheran-navy",
+    "price": 520,
+    "currency": "USD",
+    "category": "Pherans",
+    "collection": "vanguard-pherans",
+    "gender": "man",
+    "tags": ["pheran", "vanguard", "modern"],
+    "description": "Contemporary pheran in deep navy with minimalist detailing. The essence of modern Kashmiri style.",
+    "images": [
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1200&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "m-pambach-001",
+    "title": "Pambach Sherwani - Ivory",
+    "slug": "pambach-sherwani-ivory",
+    "price": 780,
+    "currency": "USD",
+    "category": "Sherwanis",
+    "collection": "pambach",
+    "gender": "man",
+    "tags": ["sherwani", "pambach", "wedding"],
+    "description": "Exquisite sherwani with traditional Pambach embroidery. Crafted for grooms and special occasions.",
+    "images": [
+      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=1200&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "m-noonchai-001",
+    "title": "Lounge Pheran - Cream",
+    "slug": "lounge-pheran-cream",
+    "price": 350,
+    "currency": "USD",
+    "category": "Pherans",
+    "collection": "noon-chai-soiree",
+    "gender": "man",
+    "tags": ["pheran", "lounge", "casual"],
+    "description": "Relaxed pheran for leisurely afternoons. Perfect for chai gatherings and weekend comfort.",
+    "images": [
+      "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1200&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "m-pashmina-001",
+    "title": "Men's Pashmina Shawl - Charcoal",
+    "slug": "mens-pashmina-shawl-charcoal",
+    "price": 380,
+    "currency": "USD",
+    "category": "Pashmina",
+    "collection": "pure-pashmina",
+    "gender": "man",
+    "tags": ["pashmina", "shawl", "men"],
+    "description": "Pure pashmina shawl in sophisticated charcoal. Subtle embroidery along the borders.",
+    "images": [
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1200&auto=format&fit=crop"
+    ]
+  }
+]
