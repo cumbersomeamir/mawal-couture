@@ -7,7 +7,7 @@ export interface IProduct extends Document {
   price: number;
   currency: string;
   category: string;
-  collection: string;
+  collectionName: string;
   gender: 'woman' | 'man' | 'unisex';
   tags: string[];
   description: string;
@@ -55,7 +55,7 @@ const ProductSchema = new Schema<IProduct>(
       required: true,
       index: true,
     },
-    collection: {
+    collectionName: {
       type: String,
       required: true,
       index: true,
@@ -110,7 +110,7 @@ const ProductSchema = new Schema<IProduct>(
 );
 
 // Create indexes for common queries
-ProductSchema.index({ collection: 1, gender: 1 });
+ProductSchema.index({ collectionName: 1, gender: 1 });
 ProductSchema.index({ category: 1, gender: 1 });
 ProductSchema.index({ featured: 1 });
 ProductSchema.index({ newArrival: 1 });

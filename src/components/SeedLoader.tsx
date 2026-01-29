@@ -21,7 +21,7 @@ export default function SeedLoader() {
           images: p.images || [],
           description: p.description || "",
           category: p.category,
-          collection: p.collection,
+          collection: p.collection || p.collectionName,
           gender: p.gender,
           tags: p.tags || []
         }));

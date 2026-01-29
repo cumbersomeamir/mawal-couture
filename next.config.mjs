@@ -1,13 +1,13 @@
-import { join } from 'path';
-
 const nextConfig = {
   reactStrictMode: true,
-  experimental: {
-    appDir: true
-  },
   images: {
     formats: ['image/avif', 'image/webp'],
-    domains: []
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
+    ],
   }
 };
 

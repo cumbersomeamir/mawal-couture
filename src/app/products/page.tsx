@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import ProductCard from '../../components/ProductCard';
@@ -75,6 +75,7 @@ interface Product {
   price: number;
   category?: string;
   collection?: string;
+  collectionName?: string;
   gender?: string;
   images?: string[];
   description?: string;
@@ -89,7 +90,7 @@ const sortOptions = [
   { value: "price-high", label: "Price: High to Low" }
 ];
 
-export default function ProductsPage() {
+function ProductsContent() {
   const searchParams = useSearchParams();
   const collectionSlug = searchParams.get('collection');
   const genderParam = searchParams.get('gender');
@@ -169,7 +170,7 @@ export default function ProductsPage() {
     let result = [...products];
 
     if (collectionSlug) {
-      result = result.filter(p => p.collection === collectionSlug);
+      result = result.filter(p => (p.collection || p.collectionName) === collectionSlug);
     }
 
     if (genderParam) {
@@ -306,5 +307,36 @@ export default function ProductsPage() {
       {/* Mountain silhouette at bottom */}
       <MountainSilhouette className="opacity-30" />
     </div>
+  );
+}
+
+// Loading component for Suspense fallback
+function ProductsLoading() {
+  return (
+    <div className="pt-24 lg:pt-36 min-h-screen bg-[#FBF9F4]">
+      <div className="container py-8 lg:py-12">
+        <div className="mb-12">
+          <div className="h-8 skeleton w-1/3 mb-4"></div>
+          <div className="h-4 skeleton w-2/3"></div>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 lg:gap-x-6 gap-y-10 lg:gap-y-14">
+          {[1, 2, 3, 4, 5, 6, 7, 8].map(i => (
+            <div key={i}>
+              <div className="aspect-[3/4] skeleton mb-3 lg:mb-4"></div>
+              <div className="h-4 skeleton w-3/4 mb-2"></div>
+              <div className="h-3 skeleton w-1/4"></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function ProductsPage() {
+  return (
+    <Suspense fallback={<ProductsLoading />}>
+      <ProductsContent />
+    </Suspense>
   );
 }

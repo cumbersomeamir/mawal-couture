@@ -19,7 +19,7 @@ export async function GET(request: NextRequest) {
     const query: Record<string, any> = {};
     
     if (collection) {
-      query.collection = collection;
+      query.collectionName = collection;
     }
     if (gender) {
       query.gender = gender;

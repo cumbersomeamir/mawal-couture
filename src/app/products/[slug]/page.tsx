@@ -1,12 +1,12 @@
 "use client";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, use } from 'react';
 import Link from 'next/link';
 import { useAppDispatch } from '../../../store/hooks';
 import { addItem } from '../../../store/slices/cartSlice';
 import { openCart } from '../../../store/slices/uiSlice';
 
 type Props = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 interface Product {
@@ -29,6 +29,7 @@ interface Product {
 }
 
 export default function ProductPage({ params }: Props) {
+  const { slug } = use(params);
   const dispatch = useAppDispatch();
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
@@ -41,7 +42,7 @@ export default function ProductPage({ params }: Props) {
     async function loadProduct() {
       try {
         // Try API first
-        const apiRes = await fetch(`/api/products/${params.slug}`);
+        const apiRes = await fetch(`/api/products/${slug}`);
         
         if (apiRes.ok) {
           const data = await apiRes.json();
@@ -59,7 +60,7 @@ export default function ProductPage({ params }: Props) {
         if (staticRes.ok) {
           const products = await staticRes.json();
           const found = products.find((p: any) => 
-            p.slug === params.slug || p.id === params.slug || p.productId === params.slug
+            p.slug === slug || p.id === slug || p.productId === slug
           );
           if (found) {
             setProduct(found);
@@ -75,7 +76,7 @@ export default function ProductPage({ params }: Props) {
           if (staticRes.ok) {
             const products = await staticRes.json();
             const found = products.find((p: any) => 
-              p.slug === params.slug || p.id === params.slug || p.productId === params.slug
+              p.slug === slug || p.id === slug || p.productId === slug
             );
             if (found) setProduct(found);
           }
@@ -87,7 +88,7 @@ export default function ProductPage({ params }: Props) {
       }
     }
     loadProduct();
-  }, [params.slug]);
+  }, [slug]);
 
   if (loading) {
     return (
