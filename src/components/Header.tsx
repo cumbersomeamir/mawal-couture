@@ -61,9 +61,9 @@ export default function Header() {
         <div className="container">
           <div className="flex items-center justify-between h-[76px]">
             {/* Left - Menu toggle on mobile, Nav on desktop */}
-            <div className="flex items-center gap-8">
+            <div className="flex items-center gap-8 text-[#0A0A0A]">
               <button 
-                className="lg:hidden"
+                className="lg:hidden hover:text-[#722F37] transition-colors"
                 onClick={() => setMobileMenuOpen(true)}
                 aria-label="Menu"
               >
@@ -80,9 +80,9 @@ export default function Header() {
                   onMouseEnter={() => handleMouseEnter('woman')}
                   onMouseLeave={handleMouseLeave}
                 >
-                  <button className={`text-[11px] font-medium tracking-[0.15em] uppercase py-6 transition-all ${
+                  <button className={`text-[11px] font-medium tracking-[0.15em] uppercase py-6 transition-all text-[#0A0A0A] ${
                     activeMenu === 'woman' ? 'text-[#D4AF37]' : 'hover:text-[#722F37]'
-                  } ${!scrolled && !activeMenu ? 'text-white' : 'text-[#0A0A0A]'}`}>
+                  }`}>
                     WOMAN
                   </button>
                   {/* Gold underline indicator */}
@@ -95,9 +95,9 @@ export default function Header() {
                   onMouseEnter={() => handleMouseEnter('man')}
                   onMouseLeave={handleMouseLeave}
                 >
-                  <button className={`text-[11px] font-medium tracking-[0.15em] uppercase py-6 transition-all ${
+                  <button className={`text-[11px] font-medium tracking-[0.15em] uppercase py-6 transition-all text-[#0A0A0A] ${
                     activeMenu === 'man' ? 'text-[#D4AF37]' : 'hover:text-[#722F37]'
-                  } ${!scrolled && !activeMenu ? 'text-white' : 'text-[#0A0A0A]'}`}>
+                  }`}>
                     MAN
                   </button>
                   <span className={`absolute bottom-4 left-0 h-0.5 bg-[#D4AF37] transition-all duration-300 ${
@@ -107,20 +107,19 @@ export default function Header() {
               </nav>
             </div>
 
-            {/* Center - Logo with Kashmir styling */}
+            {/* Center - Logo with Kashmir styling - Always visible */}
             <Link 
               href="/" 
-              className={`group relative text-xl font-medium tracking-[0.2em] uppercase transition-colors ${
-                !scrolled && !activeMenu ? 'text-white' : 'text-[#0A0A0A]'
-              }`}
-              style={{ fontFamily: "'Cormorant Garamond', serif" }}
+              className="group relative text-xl font-medium tracking-[0.2em] uppercase text-[#722F37] hover:text-[#4A1C22] transition-colors"
+              style={{ 
+                fontFamily: "'Cormorant Garamond', serif",
+                textShadow: '0 1px 2px rgba(255,255,255,0.8), 0 0 20px rgba(255,255,255,0.5)'
+              }}
             >
               <span className="relative">
                 MAWAL
                 {/* Decorative star */}
-                <span className={`absolute -top-1 -right-4 text-[8px] transition-colors ${
-                  !scrolled && !activeMenu ? 'text-[#D4AF37]' : 'text-[#D4AF37]'
-                }`}>
+                <span className="absolute -top-1 -right-4 text-[8px] text-[#D4AF37]">
                   ✦
                 </span>
               </span>
@@ -128,10 +127,8 @@ export default function Header() {
               <span className="absolute -bottom-1 left-0 w-0 h-px bg-[#D4AF37] group-hover:w-full transition-all duration-300" />
             </Link>
 
-            {/* Right - Icons */}
-            <div className={`flex items-center gap-6 ${
-              !scrolled && !activeMenu ? 'text-white' : 'text-[#0A0A0A]'
-            }`}>
+            {/* Right - Icons - Always visible */}
+            <div className="flex items-center gap-6 text-[#0A0A0A]">
               <button aria-label="Search" className="hover:text-[#D4AF37] transition-colors">
                 <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                   <circle cx="11" cy="11" r="8"/>
