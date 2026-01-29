@@ -2,110 +2,90 @@ import Link from 'next/link';
 
 export default function ProjectMatamaalPage() {
   return (
-    <div className="pt-32 lg:pt-40">
+    <main className="pt-20 lg:pt-32">
       {/* Hero */}
-      <section className="relative h-[50vh] lg:h-[60vh] overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1514996937319-344454492b37?q=80&w=1920&auto=format&fit=crop')" }}
-        />
-        <div className="absolute inset-0 bg-black/40" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center text-white">
-            <p className="text-xs tracking-[0.3em] uppercase mb-4">Initiative</p>
-            <h1 className="text-display">Project Matamaal</h1>
-          </div>
+      <section className="container py-10 lg:py-24">
+        <div className="max-w-3xl">
+          <Link 
+            href="/initiatives" 
+            className="inline-flex items-center h-12 gap-2 text-[11px] font-medium tracking-[0.15em] uppercase text-gray-500 hover:text-black transition-colors mb-6 lg:mb-8"
+          >
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Back to Initiatives
+          </Link>
+          <p className="text-[10px] font-medium tracking-[0.3em] uppercase text-gray-400 mb-4 lg:mb-6">
+            Initiative
+          </p>
+          <h1 className="text-2xl sm:text-3xl lg:text-5xl font-light tracking-tight leading-tight">
+            Project Matamaal
+          </h1>
+        </div>
+      </section>
+
+      {/* Hero Image */}
+      <section className="container pb-10 lg:pb-24">
+        <div className="aspect-[16/9] lg:aspect-[21/9] overflow-hidden bg-gray-100">
+          <img 
+            src="https://images.unsplash.com/photo-1558171813-4c088753af8f?q=80&w=1920&auto=format&fit=crop"
+            alt="Project Matamaal"
+            className="w-full h-full object-cover"
+          />
         </div>
       </section>
 
       {/* Content */}
-      <section className="py-16 lg:py-24">
-        <div className="container">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="font-serif text-3xl lg:text-4xl mb-8 text-center">
+      <section className="container pb-16 lg:pb-32">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12">
+          <div className="lg:col-span-4">
+            <p className="text-[10px] font-medium tracking-[0.3em] uppercase text-gray-400">
               Breathing new life into heirloom garments
-            </h2>
-            
-            <div className="prose prose-lg max-w-none text-gray-600">
-              <p>
-                Project Matamaal (meaning &quot;grandmother&apos;s home&quot; in Kashmiri) is our heartfelt initiative 
-                to restore and revive vintage Kashmiri textiles that have been passed down through generations.
-              </p>
-
-              <p>
-                In many Kashmiri homes, families treasure heirloom pieces — pashmina shawls, pherans, 
-                and embroidered textiles — that hold deep sentimental value. Over time, these precious 
-                garments may develop tears, moth damage, or fading that renders them unwearable.
-              </p>
-
-              <h3>Our Mission</h3>
-              <p>
-                We believe these textile treasures deserve to be preserved and enjoyed, not forgotten 
-                in storage. Our team of master artisans carefully examines each piece, identifying the 
-                original techniques used and developing restoration plans that honor the garment&apos;s heritage.
-              </p>
-
-              <h3>The Process</h3>
-              <ul>
-                <li>Careful assessment of the garment&apos;s condition and historical significance</li>
-                <li>Gentle cleaning using traditional methods</li>
-                <li>Repair of tears and damage using period-appropriate techniques</li>
-                <li>Re-embroidery to match original patterns where needed</li>
-                <li>Final preservation treatment to protect against future damage</li>
-              </ul>
-
-              <h3>Community Impact</h3>
-              <p>
-                Project Matamaal provides meaningful employment to skilled artisans who specialize in 
-                traditional restoration techniques. By preserving these skills, we ensure they can be 
-                passed on to future generations.
-              </p>
-
-              <p>
-                Each restored piece tells a story — of the family who owned it, the artisan who created 
-                it, and now the craftsmen who have given it new life. We document these stories as part 
-                of our commitment to preserving Kashmir&apos;s textile heritage.
-              </p>
-            </div>
-
-            <div className="text-center mt-12">
-              <Link href="/contact" className="btn-primary">
-                INQUIRE ABOUT RESTORATION
-              </Link>
-            </div>
+            </p>
+          </div>
+          <div className="lg:col-span-8">
+            <p className="text-base lg:text-xl font-light leading-relaxed text-gray-700 mb-6 lg:mb-8">
+              &ldquo;Matamaal&rdquo; means grandmother&apos;s house in Kashmiri — a place where 
+              treasured garments are stored and stories are passed down through generations.
+            </p>
+            <p className="text-[13px] lg:text-[14px] leading-relaxed text-gray-600 mb-6 lg:mb-8">
+              Project Matamaal is our restoration initiative that transforms these treasured 
+              family pieces into contemporary garments. We carefully restore vintage pherans, 
+              shawls, and embroidered pieces, preserving their heritage value while giving 
+              them new life for modern wardrobes.
+            </p>
+            <p className="text-[13px] lg:text-[14px] leading-relaxed text-gray-600 mb-6 lg:mb-8">
+              Each restored piece comes with a certificate documenting its history, the 
+              restoration process, and the artisans who worked on it. This creates a 
+              bridge between generations — honoring the past while embracing the future.
+            </p>
+            <p className="text-[13px] lg:text-[14px] leading-relaxed text-gray-600">
+              Through Matamaal, we&apos;ve restored over 200 heirloom pieces, reducing textile 
+              waste while preserving invaluable cultural artifacts. The initiative also 
+              provides specialized training for young artisans in traditional restoration 
+              techniques.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Gallery */}
-      <section className="py-16 lg:py-24 bg-white">
+      {/* CTA */}
+      <section className="bg-[#f8f6f3] py-12 lg:py-20">
         <div className="container">
-          <h2 className="font-serif text-2xl text-center mb-12">Restoration Gallery</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="aspect-[3/4] overflow-hidden">
-              <img 
-                src="https://images.unsplash.com/photo-1558171813-4c088753af8f?q=80&w=600&auto=format&fit=crop"
-                alt="Restored piece 1"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="aspect-[3/4] overflow-hidden">
-              <img 
-                src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=600&auto=format&fit=crop"
-                alt="Restored piece 2"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="aspect-[3/4] overflow-hidden">
-              <img 
-                src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=600&auto=format&fit=crop"
-                alt="Restored piece 3"
-                className="w-full h-full object-cover"
-              />
-            </div>
+          <div className="max-w-2xl mx-auto text-center px-4">
+            <h3 className="text-lg lg:text-xl font-light mb-4">Have an heirloom to restore?</h3>
+            <p className="text-[12px] lg:text-[13px] text-gray-600 mb-6 lg:mb-8">
+              Contact us to learn more about our restoration services.
+            </p>
+            <Link 
+              href="/contact" 
+              className="inline-flex items-center justify-center w-full sm:w-auto px-8 py-4 bg-black text-white text-[11px] font-medium tracking-[0.15em] uppercase hover:bg-gray-800 transition-colors"
+            >
+              Get in Touch
+            </Link>
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }

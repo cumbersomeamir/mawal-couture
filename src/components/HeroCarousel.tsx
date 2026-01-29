@@ -5,101 +5,96 @@ import Link from 'next/link';
 const slides = [
   {
     id: 1,
-    brand: "MAWAL COUTURE MAN",
-    title: "Winter . Edit",
-    description: "Structured Wool Pherans rooted in tradition, featuring khatamband detailing inspired by the architectural heritage of Kashmir.",
-    cta: "SHOP NOW",
-    link: "/man",
-    image: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=1920&auto=format&fit=crop"
+    label: "Winter 2025/26",
+    title: "New Season",
+    description: "Rooted in fine wool and timeless form. Heritage craftsmanship meets contemporary design.",
+    cta: "Explore Women",
+    link: "/products?collection=winter-edit-2025-26&gender=woman",
+    image: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=1920&auto=format&fit=crop"
   },
   {
     id: 2,
-    brand: "MAWAL COUTURE WOMAN",
-    title: "Winter . Edit",
-    description: "Winter silhouettes crafted in fine wool, where classic pherans and vintage motifs reflect the soul of Kashmir.",
-    cta: "SHOP NOW",
-    link: "/woman",
-    image: "https://images.unsplash.com/photo-1585914924626-15adac1e6402?q=80&w=1920&auto=format&fit=crop"
+    label: "Men's Collection",
+    title: "The Vanguard",
+    description: "Modern interpretations of the iconic Kashmiri pheran. Structure, warmth, restraint.",
+    cta: "Shop Men",
+    link: "/products?collection=vanguard-pherans&gender=man",
+    image: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=1920&auto=format&fit=crop"
   },
   {
     id: 3,
-    brand: "MAWAL COUTURE WOMAN",
-    title: "STYLE . LEGACY",
-    description: "\"Lights in the Lake\" Our journey from the looms of kashmir to the lamps of Diwali begins here. With our very first Diwali Collection.",
-    cta: "Shop Now",
-    link: "/woman",
-    image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=1920&auto=format&fit=crop"
-  },
-  {
-    id: 4,
-    brand: "MAWAL COUTURE WOMAN",
-    title: "Style . Legacy",
-    description: "The Festive Edit 2025/26 celebrates the season of radiance from Diwali lights to winter weddings. Crafted in heritage Kashmiri artistry and timeless silhouettes.",
-    cta: "DISCOVER",
-    link: "/woman",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=1920&auto=format&fit=crop"
+    label: "Heritage Craft",
+    title: "Pure Pashmina",
+    description: "Handwoven from the finest Himalayan cashmere. A testament to artisan mastery.",
+    cta: "Discover",
+    link: "/products?collection=pure-pashmina",
+    image: "https://images.unsplash.com/photo-1514996937319-344454492b37?q=80&w=1920&auto=format&fit=crop"
   }
 ];
 
 export default function HeroCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   const goToSlide = useCallback((index: number) => {
-    if (isAnimating) return;
-    setIsAnimating(true);
+    if (isTransitioning) return;
+    setIsTransitioning(true);
     setCurrentSlide(index);
-    setTimeout(() => setIsAnimating(false), 600);
-  }, [isAnimating]);
+    setTimeout(() => setIsTransitioning(false), 800);
+  }, [isTransitioning]);
 
   const nextSlide = useCallback(() => {
     goToSlide((currentSlide + 1) % slides.length);
   }, [currentSlide, goToSlide]);
 
-  // Auto-advance slides
   useEffect(() => {
     const timer = setInterval(nextSlide, 6000);
     return () => clearInterval(timer);
   }, [nextSlide]);
 
   return (
-    <section className="relative h-screen overflow-hidden">
-      {/* Slides */}
+    <section className="relative h-screen min-h-[550px] lg:min-h-[600px] overflow-hidden bg-black">
       {slides.map((slide, index) => (
         <div
           key={slide.id}
-          className={`absolute inset-0 transition-opacity duration-700 ${
+          className={`absolute inset-0 transition-opacity duration-1000 ${
             index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'
           }`}
-          style={{
-            backgroundImage: `url(${slide.image})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
-          }}
         >
-          {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
+          {/* Background Image */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center scale-105 transition-transform duration-[8000ms]"
+            style={{ 
+              backgroundImage: `url(${slide.image})`,
+              transform: index === currentSlide ? 'scale(1)' : 'scale(1.05)'
+            }}
+          />
+          
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/10" />
           
           {/* Content */}
-          <div className="absolute inset-0 flex items-end pb-24 lg:pb-32">
+          <div className="absolute inset-0 flex items-end pb-20 lg:pb-32">
             <div className="container">
               <div 
-                className={`max-w-2xl transition-all duration-700 ${
-                  index === currentSlide ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                className={`max-w-lg transition-all duration-1000 delay-200 ${
+                  index === currentSlide 
+                    ? 'opacity-100 translate-y-0' 
+                    : 'opacity-0 translate-y-6'
                 }`}
               >
-                <p className="text-white/80 text-xs tracking-[0.25em] uppercase mb-4">
-                  {slide.brand}
+                <p className="text-[9px] lg:text-[10px] font-medium tracking-[0.3em] uppercase text-white/60 mb-3 lg:mb-4">
+                  {slide.label}
                 </p>
-                <h2 className="text-white text-display font-serif mb-6">
+                <h1 className="text-3xl lg:text-6xl font-light text-white tracking-tight mb-3 lg:mb-4">
                   {slide.title}
-                </h2>
-                <p className="text-white/90 text-base lg:text-lg leading-relaxed mb-8 max-w-xl">
+                </h1>
+                <p className="text-[12px] lg:text-[13px] text-white/80 leading-relaxed mb-6 lg:mb-8 max-w-[280px] lg:max-w-sm">
                   {slide.description}
                 </p>
                 <Link 
-                  href={slide.link}
-                  className="btn-outline"
+                  href={slide.link} 
+                  className="inline-flex items-center h-12 text-[11px] font-medium tracking-[0.15em] uppercase text-white border-b border-white/60 pb-1 hover:border-white transition-colors"
                 >
                   {slide.cta}
                 </Link>
@@ -109,37 +104,33 @@ export default function HeroCarousel() {
         </div>
       ))}
 
-      {/* Carousel Dots */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3">
+      {/* Navigation Dots */}
+      <div className="absolute bottom-6 lg:bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-20">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`carousel-dot ${index === currentSlide ? 'active' : ''}`}
+            className={`w-2 h-2 rounded-full transition-all duration-300 min-w-[44px] min-h-[44px] flex items-center justify-center ${
+              index === currentSlide 
+                ? 'bg-white' 
+                : 'bg-white/40'
+            }`}
             aria-label={`Go to slide ${index + 1}`}
-          />
+          >
+            <span className={`block rounded-full transition-all duration-300 ${
+              index === currentSlide 
+                ? 'w-6 h-2 bg-white' 
+                : 'w-2 h-2 bg-white/40'
+            }`} />
+          </button>
         ))}
       </div>
 
-      {/* Navigation Arrows (optional, shown on hover) */}
-      <button
-        onClick={() => goToSlide((currentSlide - 1 + slides.length) % slides.length)}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-3 text-white/70 hover:text-white transition-colors hidden lg:block"
-        aria-label="Previous slide"
-      >
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <polyline points="15 18 9 12 15 6" />
-        </svg>
-      </button>
-      <button
-        onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-3 text-white/70 hover:text-white transition-colors hidden lg:block"
-        aria-label="Next slide"
-      >
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <polyline points="9 18 15 12 9 6" />
-        </svg>
-      </button>
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-6 lg:bottom-8 right-6 lg:right-8 hidden lg:flex items-center gap-3 text-white/50 z-20">
+        <span className="text-[10px] tracking-[0.2em] uppercase">Scroll</span>
+        <div className="w-px h-8 bg-gradient-to-b from-white/40 to-transparent" />
+      </div>
     </section>
   );
 }

@@ -14,30 +14,25 @@ export default function ProductCard({ product }: { product: Product }) {
   const productUrl = `/products/${product.slug || product.id}`;
   
   return (
-    <Link href={productUrl} className="product-card group block">
-      <div className="relative aspect-[3/4] mb-4 overflow-hidden bg-gray-100">
+    <Link href={productUrl} className="block group">
+      <div className="aspect-[3/4] overflow-hidden bg-gray-100 mb-2 lg:mb-3">
         {product.images && product.images[0] ? (
           <img 
             src={product.images[0]} 
-            alt={product.name} 
+            alt={product.name}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
         ) : (
-          <div className="w-full h-full bg-gray-100 flex items-center justify-center">
-            <span className="text-gray-400 text-sm">No image</span>
+          <div className="w-full h-full flex items-center justify-center">
+            <span className="text-[11px] text-gray-400">No image</span>
           </div>
         )}
-        {/* Quick view overlay */}
-        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
-          <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white px-4 py-2 text-xs uppercase tracking-wider font-medium">
-            Quick View
-          </span>
-        </div>
       </div>
-      <div className="px-1">
-        <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Mawal Couture</p>
-        <h3 className="font-serif text-base mb-2 line-clamp-2 group-hover:text-[#c9847a] transition-colors">{product.name}</h3>
-        <p className="text-sm text-gray-700 font-medium">${product.price.toLocaleString()}</p>
+      <div>
+        <h3 className="text-[12px] lg:text-[13px] font-normal leading-tight mb-1 group-hover:opacity-70 transition-opacity line-clamp-2">
+          {product.name}
+        </h3>
+        <p className="text-[11px] lg:text-[12px] text-gray-500">${product.price.toLocaleString()}</p>
       </div>
     </Link>
   );

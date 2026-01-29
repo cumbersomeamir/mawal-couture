@@ -1,0 +1,818 @@
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+
+dotenv.config({ path: '.env' });
+
+const MONGODB_URI = process.env.MONGODB_URI;
+
+if (!MONGODB_URI) {
+  throw new Error('Please define the MONGODB_URI environment variable');
+}
+
+// Product Schema (inline for script)
+const ProductSchema = new mongoose.Schema(
+  {
+    productId: { type: String, required: true, unique: true },
+    title: { type: String, required: true },
+    slug: { type: String, required: true, unique: true },
+    price: { type: Number, required: true },
+    currency: { type: String, default: 'USD' },
+    category: { type: String, required: true },
+    collection: { type: String, required: true },
+    gender: { type: String, enum: ['woman', 'man', 'unisex'], required: true },
+    tags: [{ type: String }],
+    description: { type: String, required: true },
+    details: { type: String, default: '' },
+    care: [{ type: String }],
+    images: [{ type: String }],
+    sizes: [{ type: String }],
+    colors: [{ name: String, hex: String }],
+    inStock: { type: Boolean, default: true },
+    featured: { type: Boolean, default: false },
+    newArrival: { type: Boolean, default: false },
+  },
+  { timestamps: true }
+);
+
+const Product = mongoose.models.Product || mongoose.model('Product', ProductSchema);
+
+type Gender = 'woman' | 'man' | 'unisex';
+
+interface ProductData {
+  productId: string;
+  title: string;
+  slug: string;
+  price: number;
+  currency: string;
+  category: string;
+  collection: string;
+  gender: Gender;
+  tags: string[];
+  description: string;
+  details: string;
+  care: string[];
+  images: string[];
+  sizes: string[];
+  colors: { name: string; hex: string }[];
+  inStock: boolean;
+  featured: boolean;
+  newArrival: boolean;
+}
+
+// Comprehensive product data
+const products: ProductData[] = [
+  // ==================== WOMEN'S PRODUCTS ====================
+  
+  // Winter Edit 2025/26 - Women
+  {
+    productId: 'w-winter-001',
+    title: 'Wool Pheran - Ivory Cascade',
+    slug: 'wool-pheran-ivory-cascade',
+    price: 450,
+    currency: 'USD',
+    category: 'Pherans',
+    collection: 'winter-edit-2025-26',
+    gender: 'woman',
+    tags: ['pheran', 'wool', 'winter', 'handwoven', 'ivory'],
+    description: 'A structured wool pheran in soft ivory, featuring intricate hand-embroidered motifs along the neckline and cuffs. The flowing silhouette offers both warmth and elegance, perfect for the winter season.',
+    details: 'Crafted from 100% pure Kashmiri wool. Hand-embroidered by master artisans. Fully lined with silk. Traditional aari work on neckline and sleeves.',
+    care: ['Dry clean only', 'Store in a cool, dry place', 'Avoid direct sunlight', 'Use padded hanger'],
+    images: [
+      'https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=800&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=800&auto=format&fit=crop',
+    ],
+    sizes: ['XS', 'S', 'M', 'L', 'XL'],
+    colors: [
+      { name: 'Ivory', hex: '#FFFFF0' },
+      { name: 'Blush', hex: '#FFB6C1' },
+    ],
+    inStock: true,
+    featured: true,
+    newArrival: true,
+  },
+  {
+    productId: 'w-winter-002',
+    title: 'Embroidered Wool Cape - Midnight',
+    slug: 'embroidered-wool-cape-midnight',
+    price: 520,
+    currency: 'USD',
+    category: 'Capes',
+    collection: 'winter-edit-2025-26',
+    gender: 'woman',
+    tags: ['cape', 'wool', 'winter', 'embroidered', 'midnight'],
+    description: 'A dramatic wool cape in deep midnight blue, adorned with traditional Kashmiri embroidery in gold thread. The cape drapes beautifully and adds instant elegance to any winter ensemble.',
+    details: 'Premium Kashmiri wool with silk lining. Hand-embroidered tilla work. One size fits most. Clasp closure at neck.',
+    care: ['Dry clean only', 'Store flat or folded', 'Keep away from moisture'],
+    images: [
+      'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=800&auto=format&fit=crop',
+    ],
+    sizes: ['One Size'],
+    colors: [
+      { name: 'Midnight', hex: '#191970' },
+    ],
+    inStock: true,
+    featured: true,
+    newArrival: true,
+  },
+  {
+    productId: 'w-winter-003',
+    title: 'Kashmiri Wool Coat - Burgundy',
+    slug: 'kashmiri-wool-coat-burgundy',
+    price: 680,
+    currency: 'USD',
+    category: 'Coats',
+    collection: 'winter-edit-2025-26',
+    gender: 'woman',
+    tags: ['coat', 'wool', 'winter', 'burgundy', 'structured'],
+    description: 'A tailored wool coat in rich burgundy, featuring subtle embroidery at the pockets and back. Modern construction meets traditional craftsmanship.',
+    details: 'Pure Kashmiri wool outer. Silk-cotton blend lining. Button closure. Side pockets with embroidery detail.',
+    care: ['Dry clean only', 'Store on padded hanger', 'Steam to remove wrinkles'],
+    images: [
+      'https://images.unsplash.com/photo-1558171813-4c088753af8f?q=80&w=800&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1503342394128-480259e0d7d2?q=80&w=800&auto=format&fit=crop',
+    ],
+    sizes: ['XS', 'S', 'M', 'L'],
+    colors: [
+      { name: 'Burgundy', hex: '#800020' },
+      { name: 'Black', hex: '#000000' },
+    ],
+    inStock: true,
+    featured: false,
+    newArrival: true,
+  },
+  {
+    productId: 'w-winter-004',
+    title: 'Heritage Wool Shawl - Cream',
+    slug: 'heritage-wool-shawl-cream',
+    price: 320,
+    currency: 'USD',
+    category: 'Shawls',
+    collection: 'winter-edit-2025-26',
+    gender: 'woman',
+    tags: ['shawl', 'wool', 'winter', 'cream', 'heritage'],
+    description: 'A lightweight yet warm wool shawl featuring traditional paisley motifs hand-embroidered by Kashmiri artisans. The cream base allows the intricate embroidery to shine.',
+    details: 'Fine Merino wool. Hand-embroidered sozni work. Dimensions: 200cm x 70cm. Finished edges.',
+    care: ['Dry clean recommended', 'Can be hand washed in cold water', 'Lay flat to dry'],
+    images: [
+      'https://images.unsplash.com/photo-1514996937319-344454492b37?q=80&w=800&auto=format&fit=crop',
+    ],
+    sizes: ['One Size'],
+    colors: [
+      { name: 'Cream', hex: '#FFFDD0' },
+    ],
+    inStock: true,
+    featured: false,
+    newArrival: false,
+  },
+
+  // Festive Edit 2025/26 - Women
+  {
+    productId: 'w-festive-001',
+    title: 'Velvet Pheran - Royal Purple',
+    slug: 'velvet-pheran-royal-purple',
+    price: 580,
+    currency: 'USD',
+    category: 'Pherans',
+    collection: 'festive-edit-2025-26',
+    gender: 'woman',
+    tags: ['pheran', 'velvet', 'festive', 'purple', 'royal'],
+    description: 'A luxurious velvet pheran in regal purple, embellished with gold tilla embroidery. Perfect for festive gatherings and special occasions.',
+    details: 'Silk velvet outer. Gold tilla hand embroidery. Silk lining. Traditional cut with modern finishing.',
+    care: ['Dry clean only', 'Store in garment bag', 'Avoid crushing'],
+    images: [
+      'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=800&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=800&auto=format&fit=crop',
+    ],
+    sizes: ['S', 'M', 'L', 'XL'],
+    colors: [
+      { name: 'Royal Purple', hex: '#7851A9' },
+      { name: 'Emerald', hex: '#50C878' },
+    ],
+    inStock: true,
+    featured: true,
+    newArrival: true,
+  },
+  {
+    productId: 'w-festive-002',
+    title: 'Brocade Jacket - Gold',
+    slug: 'brocade-jacket-gold',
+    price: 420,
+    currency: 'USD',
+    category: 'Jackets',
+    collection: 'festive-edit-2025-26',
+    gender: 'woman',
+    tags: ['jacket', 'brocade', 'festive', 'gold', 'celebration'],
+    description: 'A structured brocade jacket featuring traditional Kashmiri patterns woven in gold thread. A statement piece for festive celebrations.',
+    details: 'Silk brocade with metallic thread. Fully lined. Hook and eye closure. Cropped length.',
+    care: ['Dry clean only', 'Store flat', 'Handle with care'],
+    images: [
+      'https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=800&auto=format&fit=crop',
+    ],
+    sizes: ['XS', 'S', 'M', 'L'],
+    colors: [
+      { name: 'Gold', hex: '#FFD700' },
+    ],
+    inStock: true,
+    featured: false,
+    newArrival: true,
+  },
+  {
+    productId: 'w-festive-003',
+    title: 'Embellished Kaftan - Maroon',
+    slug: 'embellished-kaftan-maroon',
+    price: 380,
+    currency: 'USD',
+    category: 'Kaftans',
+    collection: 'festive-edit-2025-26',
+    gender: 'woman',
+    tags: ['kaftan', 'festive', 'maroon', 'embellished'],
+    description: 'A flowing kaftan in deep maroon, featuring delicate hand-embroidered details at the neckline and hem. Effortless elegance for festive occasions.',
+    details: 'Silk-cotton blend. Hand embroidery. Relaxed fit. Side slits for movement.',
+    care: ['Dry clean recommended', 'Iron on low heat', 'Store hanging'],
+    images: [
+      'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop',
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    colors: [
+      { name: 'Maroon', hex: '#800000' },
+      { name: 'Navy', hex: '#000080' },
+    ],
+    inStock: true,
+    featured: false,
+    newArrival: false,
+  },
+
+  // Pure Pashmina - Women
+  {
+    productId: 'w-pashmina-001',
+    title: 'Pure Pashmina Shawl - Natural',
+    slug: 'pure-pashmina-shawl-natural',
+    price: 850,
+    currency: 'USD',
+    category: 'Shawls',
+    collection: 'pure-pashmina',
+    gender: 'woman',
+    tags: ['pashmina', 'shawl', 'natural', 'handwoven', 'luxury'],
+    description: 'An exquisite pure pashmina shawl in natural undyed color. Handwoven by master artisans using traditional techniques passed down through generations. The ultimate in luxury and warmth.',
+    details: '100% pure pashmina (cashmere). Handwoven on traditional loom. Natural undyed color. Weight: 200g. Dimensions: 200cm x 100cm.',
+    care: ['Dry clean only', 'Store folded in breathable bag', 'Keep away from moths', 'Avoid perfume contact'],
+    images: [
+      'https://images.unsplash.com/photo-1514996937319-344454492b37?q=80&w=800&auto=format&fit=crop',
+    ],
+    sizes: ['One Size'],
+    colors: [
+      { name: 'Natural', hex: '#F5F5DC' },
+    ],
+    inStock: true,
+    featured: true,
+    newArrival: false,
+  },
+  {
+    productId: 'w-pashmina-002',
+    title: 'Kani Pashmina - Multicolor',
+    slug: 'kani-pashmina-multicolor',
+    price: 1200,
+    currency: 'USD',
+    category: 'Shawls',
+    collection: 'pure-pashmina',
+    gender: 'woman',
+    tags: ['pashmina', 'kani', 'multicolor', 'handwoven', 'heirloom'],
+    description: 'A museum-quality Kani pashmina featuring intricate patterns woven using the ancient Kani technique. Each shawl takes several months to complete and is a true work of art.',
+    details: '100% pure pashmina. Kani weave technique. Multiple colors in traditional pattern. Dimensions: 200cm x 100cm.',
+    care: ['Professional cleaning only', 'Store in acid-free tissue', 'Handle with utmost care'],
+    images: [
+      'https://images.unsplash.com/photo-1558171813-4c088753af8f?q=80&w=800&auto=format&fit=crop',
+    ],
+    sizes: ['One Size'],
+    colors: [
+      { name: 'Multicolor', hex: '#FFD700' },
+    ],
+    inStock: true,
+    featured: true,
+    newArrival: false,
+  },
+  {
+    productId: 'w-pashmina-003',
+    title: 'Sozni Embroidered Pashmina - Black',
+    slug: 'sozni-embroidered-pashmina-black',
+    price: 980,
+    currency: 'USD',
+    category: 'Shawls',
+    collection: 'pure-pashmina',
+    gender: 'woman',
+    tags: ['pashmina', 'sozni', 'black', 'embroidered', 'luxury'],
+    description: 'A pure pashmina shawl in black, featuring exquisite sozni embroidery in contrasting colors. The needle-fine embroidery creates delicate floral patterns across the entire surface.',
+    details: '100% pure pashmina. Hand sozni embroidery. Takes 6-8 months to complete. Dimensions: 200cm x 100cm.',
+    care: ['Dry clean only', 'Never hang', 'Store flat', 'Keep in muslin cloth'],
+    images: [
+      'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=800&auto=format&fit=crop',
+    ],
+    sizes: ['One Size'],
+    colors: [
+      { name: 'Black', hex: '#000000' },
+    ],
+    inStock: true,
+    featured: false,
+    newArrival: true,
+  },
+
+  // Khandar - Women
+  {
+    productId: 'w-khandar-001',
+    title: 'Khandar Pheran - Earth Tones',
+    slug: 'khandar-pheran-earth-tones',
+    price: 480,
+    currency: 'USD',
+    category: 'Pherans',
+    collection: 'khandar',
+    gender: 'woman',
+    tags: ['pheran', 'khandar', 'earth', 'traditional', 'heritage'],
+    description: 'A traditional Khandar pheran featuring authentic regional patterns in warm earth tones. This style represents the original Kashmiri pheran design from the Khandar region.',
+    details: 'Handwoven wool. Traditional Khandar patterns. Natural dyes. Fully lined.',
+    care: ['Dry clean only', 'Store in cool, dry place', 'Air out occasionally'],
+    images: [
+      'https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=800&auto=format&fit=crop',
+    ],
+    sizes: ['S', 'M', 'L', 'XL'],
+    colors: [
+      { name: 'Earth', hex: '#5C4033' },
+    ],
+    inStock: true,
+    featured: false,
+    newArrival: false,
+  },
+  {
+    productId: 'w-khandar-002',
+    title: 'Khandar Wool Stole - Rust',
+    slug: 'khandar-wool-stole-rust',
+    price: 180,
+    currency: 'USD',
+    category: 'Stoles',
+    collection: 'khandar',
+    gender: 'woman',
+    tags: ['stole', 'khandar', 'rust', 'wool', 'heritage'],
+    description: 'A soft wool stole featuring traditional Khandar patterns in a beautiful rust color. Versatile enough for everyday wear.',
+    details: 'Fine Merino wool. Traditional pattern. Dimensions: 180cm x 50cm. Fringed edges.',
+    care: ['Dry clean or hand wash cold', 'Lay flat to dry', 'Do not wring'],
+    images: [
+      'https://images.unsplash.com/photo-1558171813-4c088753af8f?q=80&w=800&auto=format&fit=crop',
+    ],
+    sizes: ['One Size'],
+    colors: [
+      { name: 'Rust', hex: '#B7410E' },
+    ],
+    inStock: true,
+    featured: false,
+    newArrival: false,
+  },
+
+  // Velvets - Women
+  {
+    productId: 'w-velvet-001',
+    title: 'Velvet Embroidered Coat - Forest Green',
+    slug: 'velvet-embroidered-coat-forest-green',
+    price: 620,
+    currency: 'USD',
+    category: 'Coats',
+    collection: 'velvets',
+    gender: 'woman',
+    tags: ['velvet', 'coat', 'embroidered', 'green', 'luxury'],
+    description: 'A sumptuous velvet coat in forest green, featuring hand-embroidered floral motifs. The perfect statement piece for cooler months.',
+    details: 'Silk velvet. Hand embroidery. Satin lining. Button closure.',
+    care: ['Dry clean only', 'Store on padded hanger', 'Avoid crushing velvet'],
+    images: [
+      'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop',
+    ],
+    sizes: ['XS', 'S', 'M', 'L'],
+    colors: [
+      { name: 'Forest Green', hex: '#228B22' },
+    ],
+    inStock: true,
+    featured: true,
+    newArrival: false,
+  },
+  {
+    productId: 'w-velvet-002',
+    title: 'Velvet Nehru Jacket - Wine',
+    slug: 'velvet-nehru-jacket-wine',
+    price: 340,
+    currency: 'USD',
+    category: 'Jackets',
+    collection: 'velvets',
+    gender: 'woman',
+    tags: ['velvet', 'jacket', 'nehru', 'wine', 'elegant'],
+    description: 'A classic Nehru jacket reimagined in plush wine velvet. Features subtle embroidery and a mandarin collar for timeless appeal.',
+    details: 'Silk velvet. Embroidered details. Silk lining. Hook closure.',
+    care: ['Dry clean only', 'Store flat or hanging', 'Steam to refresh'],
+    images: [
+      'https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=800&auto=format&fit=crop',
+    ],
+    sizes: ['XS', 'S', 'M', 'L', 'XL'],
+    colors: [
+      { name: 'Wine', hex: '#722F37' },
+      { name: 'Black', hex: '#000000' },
+    ],
+    inStock: true,
+    featured: false,
+    newArrival: true,
+  },
+
+  // Kaftan - Women
+  {
+    productId: 'w-kaftan-001',
+    title: 'Silk Kaftan - Ocean Blue',
+    slug: 'silk-kaftan-ocean-blue',
+    price: 420,
+    currency: 'USD',
+    category: 'Kaftans',
+    collection: 'kaftan',
+    gender: 'woman',
+    tags: ['kaftan', 'silk', 'blue', 'flowing', 'elegant'],
+    description: 'A flowing silk kaftan in serene ocean blue, featuring hand-embroidered details at the neckline. Effortless elegance for any occasion.',
+    details: 'Pure silk. Hand embroidery at neckline. Relaxed fit. Full length.',
+    care: ['Dry clean recommended', 'Iron on low setting', 'Store hanging'],
+    images: [
+      'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=800&auto=format&fit=crop',
+    ],
+    sizes: ['S', 'M', 'L', 'XL'],
+    colors: [
+      { name: 'Ocean Blue', hex: '#4F97A3' },
+    ],
+    inStock: true,
+    featured: false,
+    newArrival: false,
+  },
+  {
+    productId: 'w-kaftan-002',
+    title: 'Embroidered Kaftan - Blush Pink',
+    slug: 'embroidered-kaftan-blush-pink',
+    price: 460,
+    currency: 'USD',
+    category: 'Kaftans',
+    collection: 'kaftan',
+    gender: 'woman',
+    tags: ['kaftan', 'embroidered', 'pink', 'flowing'],
+    description: 'A romantic kaftan in soft blush pink, adorned with delicate embroidery throughout. Perfect for special occasions or elegant lounging.',
+    details: 'Silk-cotton blend. All-over embroidery. Relaxed fit. Side slits.',
+    care: ['Dry clean only', 'Iron inside out', 'Store hanging'],
+    images: [
+      'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop',
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    colors: [
+      { name: 'Blush Pink', hex: '#FEC5E5' },
+    ],
+    inStock: true,
+    featured: false,
+    newArrival: true,
+  },
+
+  // ==================== MEN'S PRODUCTS ====================
+
+  // Winter Edit 2025/26 - Men
+  {
+    productId: 'm-winter-001',
+    title: 'Mens Wool Pheran - Charcoal',
+    slug: 'mens-wool-pheran-charcoal',
+    price: 420,
+    currency: 'USD',
+    category: 'Pherans',
+    collection: 'winter-edit-2025-26',
+    gender: 'man',
+    tags: ['pheran', 'wool', 'winter', 'charcoal', 'mens'],
+    description: 'A classic mens wool pheran in sophisticated charcoal. Clean lines and minimal embroidery create a modern take on the traditional garment.',
+    details: 'Pure Kashmiri wool. Minimal embroidery at neckline. Cotton lining. Traditional kangri pocket.',
+    care: ['Dry clean only', 'Store hanging', 'Air out regularly'],
+    images: [
+      'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=800&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1617137968427-85924c800a22?q=80&w=800&auto=format&fit=crop',
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    colors: [
+      { name: 'Charcoal', hex: '#36454F' },
+      { name: 'Navy', hex: '#000080' },
+    ],
+    inStock: true,
+    featured: true,
+    newArrival: true,
+  },
+  {
+    productId: 'm-winter-002',
+    title: 'Mens Wool Overcoat - Camel',
+    slug: 'mens-wool-overcoat-camel',
+    price: 580,
+    currency: 'USD',
+    category: 'Coats',
+    collection: 'winter-edit-2025-26',
+    gender: 'man',
+    tags: ['coat', 'wool', 'winter', 'camel', 'overcoat'],
+    description: 'A tailored wool overcoat in classic camel, featuring subtle Kashmiri embroidery on the collar. Modern silhouette meets traditional craftsmanship.',
+    details: 'Pure wool outer. Embroidered collar detail. Full lining. Double-breasted closure.',
+    care: ['Dry clean only', 'Store on broad hanger', 'Brush regularly'],
+    images: [
+      'https://images.unsplash.com/photo-1617137968427-85924c800a22?q=80&w=800&auto=format&fit=crop',
+    ],
+    sizes: ['S', 'M', 'L', 'XL'],
+    colors: [
+      { name: 'Camel', hex: '#C19A6B' },
+    ],
+    inStock: true,
+    featured: false,
+    newArrival: true,
+  },
+  {
+    productId: 'm-winter-003',
+    title: 'Mens Wool Shawl - Grey',
+    slug: 'mens-wool-shawl-grey',
+    price: 280,
+    currency: 'USD',
+    category: 'Shawls',
+    collection: 'winter-edit-2025-26',
+    gender: 'man',
+    tags: ['shawl', 'wool', 'winter', 'grey', 'mens'],
+    description: 'A distinguished wool shawl in heathered grey, featuring subtle stripe detail. Versatile enough for both formal and casual occasions.',
+    details: 'Fine Merino wool. Subtle stripe pattern. Dimensions: 200cm x 80cm. Fringed ends.',
+    care: ['Dry clean recommended', 'Can be hand washed', 'Lay flat to dry'],
+    images: [
+      'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop',
+    ],
+    sizes: ['One Size'],
+    colors: [
+      { name: 'Grey', hex: '#808080' },
+    ],
+    inStock: true,
+    featured: false,
+    newArrival: false,
+  },
+
+  // Vanguard Pherans - Men
+  {
+    productId: 'm-vanguard-001',
+    title: 'Vanguard Pheran - Midnight Blue',
+    slug: 'vanguard-pheran-midnight-blue',
+    price: 520,
+    currency: 'USD',
+    category: 'Pherans',
+    collection: 'vanguard-pherans',
+    gender: 'man',
+    tags: ['pheran', 'vanguard', 'blue', 'modern', 'structured'],
+    description: 'Our signature Vanguard Pheran redefines the traditional silhouette with contemporary tailoring. In midnight blue with minimal embroidery for the modern man.',
+    details: 'Premium wool blend. Contemporary cut. Minimal embroidery. Full canvas construction.',
+    care: ['Dry clean only', 'Store on shaped hanger', 'Steam to refresh'],
+    images: [
+      'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=800&auto=format&fit=crop',
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    colors: [
+      { name: 'Midnight Blue', hex: '#191970' },
+      { name: 'Black', hex: '#000000' },
+    ],
+    inStock: true,
+    featured: true,
+    newArrival: true,
+  },
+  {
+    productId: 'm-vanguard-002',
+    title: 'Vanguard Pheran - Olive',
+    slug: 'vanguard-pheran-olive',
+    price: 520,
+    currency: 'USD',
+    category: 'Pherans',
+    collection: 'vanguard-pherans',
+    gender: 'man',
+    tags: ['pheran', 'vanguard', 'olive', 'modern'],
+    description: 'The Vanguard Pheran in sophisticated olive green. A modern interpretation that maintains the essence of traditional Kashmiri design.',
+    details: 'Premium wool blend. Contemporary tailoring. Subtle embroidery. Full lining.',
+    care: ['Dry clean only', 'Store properly', 'Avoid crushing'],
+    images: [
+      'https://images.unsplash.com/photo-1617137968427-85924c800a22?q=80&w=800&auto=format&fit=crop',
+    ],
+    sizes: ['S', 'M', 'L', 'XL'],
+    colors: [
+      { name: 'Olive', hex: '#808000' },
+    ],
+    inStock: true,
+    featured: false,
+    newArrival: true,
+  },
+  {
+    productId: 'm-vanguard-003',
+    title: 'Vanguard Short Pheran - Slate',
+    slug: 'vanguard-short-pheran-slate',
+    price: 440,
+    currency: 'USD',
+    category: 'Pherans',
+    collection: 'vanguard-pherans',
+    gender: 'man',
+    tags: ['pheran', 'vanguard', 'slate', 'short', 'modern'],
+    description: 'A shorter version of our Vanguard Pheran in versatile slate grey. Perfect for layering or wearing on its own.',
+    details: 'Premium wool. Shortened length. Modern fit. Minimal embroidery.',
+    care: ['Dry clean only', 'Store hanging', 'Air out between wears'],
+    images: [
+      'https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?q=80&w=800&auto=format&fit=crop',
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    colors: [
+      { name: 'Slate', hex: '#708090' },
+    ],
+    inStock: true,
+    featured: false,
+    newArrival: false,
+  },
+
+  // Khandar - Men
+  {
+    productId: 'm-khandar-001',
+    title: 'Mens Khandar Pheran - Brown',
+    slug: 'mens-khandar-pheran-brown',
+    price: 460,
+    currency: 'USD',
+    category: 'Pherans',
+    collection: 'khandar',
+    gender: 'man',
+    tags: ['pheran', 'khandar', 'brown', 'traditional', 'heritage'],
+    description: 'An authentic Khandar pheran for men in rich brown tones. Traditional patterns and construction honor the heritage of this regional style.',
+    details: 'Handwoven wool. Traditional Khandar patterns. Natural dyes. Traditional kangri pocket.',
+    care: ['Dry clean only', 'Store in dry place', 'Air out regularly'],
+    images: [
+      'https://images.unsplash.com/photo-1617137968427-85924c800a22?q=80&w=800&auto=format&fit=crop',
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    colors: [
+      { name: 'Brown', hex: '#8B4513' },
+    ],
+    inStock: true,
+    featured: false,
+    newArrival: false,
+  },
+  {
+    productId: 'm-khandar-002',
+    title: 'Mens Khandar Waistcoat - Rust',
+    slug: 'mens-khandar-waistcoat-rust',
+    price: 220,
+    currency: 'USD',
+    category: 'Waistcoats',
+    collection: 'khandar',
+    gender: 'man',
+    tags: ['waistcoat', 'khandar', 'rust', 'heritage'],
+    description: 'A handsome waistcoat featuring traditional Khandar patterns in warm rust tones. Perfect for layering over shirts or kurtas.',
+    details: 'Wool outer. Cotton lining. Traditional pattern. Button front.',
+    care: ['Dry clean only', 'Store flat', 'Press gently if needed'],
+    images: [
+      'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop',
+    ],
+    sizes: ['S', 'M', 'L', 'XL'],
+    colors: [
+      { name: 'Rust', hex: '#B7410E' },
+    ],
+    inStock: true,
+    featured: false,
+    newArrival: false,
+  },
+
+  // Wyath - Men
+  {
+    productId: 'm-wyath-001',
+    title: 'Wyath Jacket - Graphite',
+    slug: 'wyath-jacket-graphite',
+    price: 380,
+    currency: 'USD',
+    category: 'Jackets',
+    collection: 'wyath',
+    gender: 'man',
+    tags: ['jacket', 'wyath', 'graphite', 'contemporary'],
+    description: 'A contemporary jacket from our Wyath collection, featuring clean lines and subtle Kashmiri embroidery. Modern menswear with heritage details.',
+    details: 'Wool-cotton blend. Subtle embroidery. Modern fit. Full lining.',
+    care: ['Dry clean only', 'Store on hanger', 'Steam to remove wrinkles'],
+    images: [
+      'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=800&auto=format&fit=crop',
+    ],
+    sizes: ['S', 'M', 'L', 'XL'],
+    colors: [
+      { name: 'Graphite', hex: '#383838' },
+    ],
+    inStock: true,
+    featured: false,
+    newArrival: true,
+  },
+  {
+    productId: 'm-wyath-002',
+    title: 'Wyath Kurta Set - Ivory',
+    slug: 'wyath-kurta-set-ivory',
+    price: 320,
+    currency: 'USD',
+    category: 'Kurtas',
+    collection: 'wyath',
+    gender: 'man',
+    tags: ['kurta', 'wyath', 'ivory', 'set'],
+    description: 'A refined kurta-pajama set in ivory featuring subtle embroidered details. Part of our contemporary Wyath collection.',
+    details: 'Cotton-silk blend. Embroidered neckline. Includes matching pajama. Relaxed fit.',
+    care: ['Dry clean recommended', 'Can be machine washed gentle', 'Iron on medium'],
+    images: [
+      'https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?q=80&w=800&auto=format&fit=crop',
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    colors: [
+      { name: 'Ivory', hex: '#FFFFF0' },
+    ],
+    inStock: true,
+    featured: false,
+    newArrival: false,
+  },
+
+  // ==================== UNISEX / ACCESSORIES ====================
+  {
+    productId: 'u-acc-001',
+    title: 'Pashmina Muffler - Camel',
+    slug: 'pashmina-muffler-camel',
+    price: 180,
+    currency: 'USD',
+    category: 'Accessories',
+    collection: 'winter-edit-2025-26',
+    gender: 'unisex',
+    tags: ['muffler', 'pashmina', 'camel', 'unisex', 'accessory'],
+    description: 'A luxuriously soft pashmina muffler in classic camel. The perfect accessory to add warmth and elegance to any outfit.',
+    details: 'Pure pashmina. Dimensions: 180cm x 30cm. Fringed ends.',
+    care: ['Dry clean only', 'Store folded', 'Handle gently'],
+    images: [
+      'https://images.unsplash.com/photo-1514996937319-344454492b37?q=80&w=800&auto=format&fit=crop',
+    ],
+    sizes: ['One Size'],
+    colors: [
+      { name: 'Camel', hex: '#C19A6B' },
+      { name: 'Grey', hex: '#808080' },
+      { name: 'Black', hex: '#000000' },
+    ],
+    inStock: true,
+    featured: false,
+    newArrival: false,
+  },
+  {
+    productId: 'u-acc-002',
+    title: 'Embroidered Wool Cap - Black',
+    slug: 'embroidered-wool-cap-black',
+    price: 85,
+    currency: 'USD',
+    category: 'Accessories',
+    collection: 'winter-edit-2025-26',
+    gender: 'unisex',
+    tags: ['cap', 'wool', 'embroidered', 'black', 'accessory'],
+    description: 'A traditional Kashmiri cap in black wool, featuring delicate hand embroidery. A distinctive accessory that adds character to any look.',
+    details: 'Pure wool. Hand embroidered. One size fits most.',
+    care: ['Dry clean only', 'Store flat', 'Handle with care'],
+    images: [
+      'https://images.unsplash.com/photo-1558171813-4c088753af8f?q=80&w=800&auto=format&fit=crop',
+    ],
+    sizes: ['One Size'],
+    colors: [
+      { name: 'Black', hex: '#000000' },
+      { name: 'Maroon', hex: '#800000' },
+    ],
+    inStock: true,
+    featured: false,
+    newArrival: true,
+  },
+];
+
+async function seed() {
+  try {
+    console.log('Connecting to MongoDB...');
+    await mongoose.connect(MONGODB_URI!);
+    console.log('Connected to MongoDB');
+
+    // Clear existing products
+    console.log('Clearing existing products...');
+    await Product.deleteMany({});
+
+    // Insert new products
+    console.log('Seeding products...');
+    const result = await Product.insertMany(products as any);
+    console.log(`Successfully seeded ${result.length} products`);
+
+    // Log summary
+    const womenCount = products.filter(p => p.gender === 'woman').length;
+    const menCount = products.filter(p => p.gender === 'man').length;
+    const unisexCount = products.filter(p => p.gender === 'unisex').length;
+    
+    console.log('\nSummary:');
+    console.log(`- Women's products: ${womenCount}`);
+    console.log(`- Men's products: ${menCount}`);
+    console.log(`- Unisex products: ${unisexCount}`);
+    console.log(`- Total: ${products.length}`);
+
+    // List collections
+    const collections = [...new Set(products.map(p => p.collection))];
+    console.log('\nCollections:', collections.join(', '));
+
+  } catch (error) {
+    console.error('Error seeding database:', error);
+    process.exit(1);
+  } finally {
+    await mongoose.disconnect();
+    console.log('\nDisconnected from MongoDB');
+    process.exit(0);
+  }
+}
+
+seed();

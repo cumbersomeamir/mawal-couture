@@ -2,109 +2,81 @@ import Link from 'next/link';
 
 export default function InitiativesPage() {
   return (
-    <div className="pt-32 lg:pt-40">
+    <main className="pt-20 lg:pt-32">
       {/* Hero */}
-      <section className="relative h-[50vh] lg:h-[60vh] overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1558171813-4c088753af8f?q=80&w=1920&auto=format&fit=crop')" }}
-        />
-        <div className="absolute inset-0 bg-black/40" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center text-white">
-            <p className="text-xs tracking-[0.3em] uppercase mb-4">Our Initiatives</p>
-            <h1 className="text-display">Craft Revival</h1>
-          </div>
+      <section className="container py-10 lg:py-24">
+        <div className="max-w-3xl">
+          <p className="text-[10px] font-medium tracking-[0.3em] uppercase text-gray-400 mb-4 lg:mb-6">
+            Initiatives
+          </p>
+          <h1 className="text-2xl sm:text-3xl lg:text-6xl font-light tracking-tight leading-tight mb-6 lg:mb-8">
+            Sustainability and Craft Revival
+          </h1>
+          <p className="text-[13px] lg:text-[14px] text-gray-600 leading-relaxed">
+            Beyond fashion, we are committed to preserving Kashmir&apos;s artisan heritage 
+            and promoting sustainable practices that honor both people and planet.
+          </p>
         </div>
       </section>
 
-      {/* Intro */}
-      <section className="py-16 lg:py-24">
-        <div className="container">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="font-serif text-3xl lg:text-4xl mb-8">
-              Sustainability and Craft Revival
-            </h2>
-            <p className="text-gray-600 leading-relaxed">
-              At Mawal Couture, we&apos;re committed to preserving Kashmir&apos;s rich textile heritage 
-              while supporting the artisans who keep these traditions alive. Our initiatives focus 
-              on sustainability, skill preservation, and community development.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Project Matamaal */}
-      <section className="py-16 lg:py-24 bg-white">
-        <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="aspect-[4/5] overflow-hidden">
+      {/* Initiatives Grid */}
+      <section className="container pb-16 lg:pb-32">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-8">
+          {/* Project Matamaal */}
+          <Link href="/initiatives/project-matamaal" className="block group">
+            <div className="aspect-[4/3] overflow-hidden bg-gray-100 mb-4 lg:mb-6">
               <img 
-                src="https://images.unsplash.com/photo-1514996937319-344454492b37?q=80&w=1000&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1558171813-4c088753af8f?q=80&w=800&auto=format&fit=crop"
                 alt="Project Matamaal"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
             </div>
-            <div>
-              <p className="text-xs tracking-[0.25em] uppercase mb-4 text-gray-500">
-                Project Matamaal
-              </p>
-              <h3 className="font-serif text-3xl mb-6">
-                Breathing new life into heirloom garments
-              </h3>
-              <p className="text-gray-600 leading-relaxed mb-6">
-                Project Matamaal is our initiative to restore and revive vintage Kashmiri textiles. 
-                Many families possess heirloom pieces that have been passed down through generations 
-                but have fallen into disrepair.
-              </p>
-              <p className="text-gray-600 leading-relaxed mb-8">
-                Our skilled artisans carefully restore these treasures, preserving their historical 
-                significance while making them wearable once again. This project not only saves 
-                precious textiles from being lost but also provides employment to traditional craftsmen.
-              </p>
-              <Link href="/initiatives/project-matamaal" className="btn-primary">
-                LEARN MORE
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+            <p className="text-[10px] font-medium tracking-[0.2em] uppercase text-gray-400 mb-2">
+              Project Matamaal
+            </p>
+            <h2 className="text-lg lg:text-xl font-light mb-2 lg:mb-3">
+              Breathing new life into heirloom garments
+            </h2>
+            <p className="text-[12px] lg:text-[13px] text-gray-600 leading-relaxed mb-4">
+              A restoration initiative that transforms treasured family pieces into 
+              contemporary garments while preserving their heritage value.
+            </p>
+            <span className="inline-flex items-center h-12 gap-2 text-[11px] font-medium tracking-[0.15em] uppercase group-hover:opacity-60 transition-opacity">
+              Learn More
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </Link>
 
-      {/* Golden Hands */}
-      <section className="py-16 lg:py-24">
-        <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="order-2 lg:order-1">
-              <p className="text-xs tracking-[0.25em] uppercase mb-4 text-gray-500">
-                The Golden Hands of Kashmir
-              </p>
-              <h3 className="font-serif text-3xl mb-6">
-                Supporting artisans who bring craft to life
-              </h3>
-              <p className="text-gray-600 leading-relaxed mb-6">
-                The Golden Hands of Kashmir is our program dedicated to supporting and celebrating 
-                the master artisans of the valley. These skilled craftsmen have devoted their lives 
-                to perfecting traditional techniques.
-              </p>
-              <p className="text-gray-600 leading-relaxed mb-8">
-                Through this initiative, we provide fair wages, healthcare support, and skill 
-                development opportunities. We also document their techniques to ensure these 
-                precious skills are passed on to future generations.
-              </p>
-              <Link href="/initiatives/golden-hands" className="btn-primary">
-                LEARN MORE
-              </Link>
-            </div>
-            <div className="aspect-[4/5] overflow-hidden order-1 lg:order-2">
+          {/* Golden Hands */}
+          <Link href="/initiatives/golden-hands" className="block group">
+            <div className="aspect-[4/3] overflow-hidden bg-gray-100 mb-4 lg:mb-6">
               <img 
-                src="https://images.unsplash.com/photo-1503342394128-480259e0d7d2?q=80&w=1000&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1514996937319-344454492b37?q=80&w=800&auto=format&fit=crop"
                 alt="The Golden Hands of Kashmir"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
             </div>
-          </div>
+            <p className="text-[10px] font-medium tracking-[0.2em] uppercase text-gray-400 mb-2">
+              The Golden Hands of Kashmir
+            </p>
+            <h2 className="text-lg lg:text-xl font-light mb-2 lg:mb-3">
+              Supporting artisans who bring craft to life
+            </h2>
+            <p className="text-[12px] lg:text-[13px] text-gray-600 leading-relaxed mb-4">
+              A program dedicated to empowering Kashmir&apos;s master craftspeople through 
+              fair wages, training, and global recognition.
+            </p>
+            <span className="inline-flex items-center h-12 gap-2 text-[11px] font-medium tracking-[0.15em] uppercase group-hover:opacity-60 transition-opacity">
+              Learn More
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </Link>
         </div>
       </section>
-    </div>
+    </main>
   );
 }
