@@ -2,11 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Premium Fonts - Clean & Sophisticated */
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+/* Premium Fonts - Elegant & Sophisticated */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+/* ============================================
+   KASHMIR CULTURAL THEME
+   Inspired by the Paradise of Earth
+   ============================================ */
 
 :root {
-  --color-black: #000000;
+  /* Kashmir Color Palette */
+  --kashmir-saffron: #E5A220;
+  --kashmir-saffron-light: #F4C561;
+  --kashmir-burgundy: #722F37;
+  --kashmir-burgundy-deep: #4A1C22;
+  --kashmir-forest: #1B4332;
+  --kashmir-forest-light: #2D5A45;
+  --kashmir-lake: #1D3557;
+  --kashmir-lake-light: #2A4A6E;
+  --kashmir-gold: #D4AF37;
+  --kashmir-gold-light: #E8C96F;
+  --kashmir-ivory: #F5F0E6;
+  --kashmir-cream: #FBF9F4;
+  --kashmir-snow: #FAFBFC;
+  --kashmir-walnut: #5D4037;
+  --kashmir-papier-mache: #E74C3C;
+  
+  /* Neutrals */
+  --color-black: #0A0A0A;
   --color-white: #ffffff;
   --color-gray-50: #fafafa;
   --color-gray-100: #f5f5f5;
@@ -19,14 +42,27 @@
   --color-gray-800: #262626;
   --color-gray-900: #171717;
   
+  /* Fonts */
   --font-primary: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
   
+  /* Transitions */
   --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slower: 800ms cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Kashmir Patterns - Paisley SVG */
+  --paisley-pattern: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5c-8 0-15 7-15 20s7 30 15 30 15-17 15-30S38 5 30 5zm0 5c5 0 10 5 10 15s-5 25-10 25-10-15-10-25 5-15 10-15z' fill='%23D4AF37' fill-opacity='0.08'/%3E%3C/svg%3E");
+  
+  /* Chinar Leaf Pattern */
+  --chinar-pattern: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 10 L50 25 L65 25 L55 40 L65 55 L50 55 L40 70 L30 55 L15 55 L25 40 L15 25 L30 25 Z' fill='none' stroke='%23722F37' stroke-opacity='0.06' stroke-width='1'/%3E%3C/svg%3E");
 }
 
-/* Reset & Base */
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -46,40 +82,168 @@ body {
   font-size: 0.875rem;
   line-height: 1.6;
   color: var(--color-black);
-  background-color: var(--color-white);
+  background-color: var(--kashmir-cream);
   letter-spacing: 0.01em;
+  overflow-x: hidden;
 }
 
-/* Typography - Zara-inspired minimal hierarchy */
+/* ============================================
+   TYPOGRAPHY - Kashmir Elegance
+   ============================================ */
+
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-primary);
+  font-family: var(--font-display);
   font-weight: 400;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
   margin: 0;
 }
 
-h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); }
-h2 { font-size: clamp(1.75rem, 4vw, 3rem); }
-h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); }
-h4 { font-size: 1.125rem; }
+h1 { font-size: clamp(2.5rem, 6vw, 5rem); }
+h2 { font-size: clamp(1.75rem, 4vw, 3.5rem); }
+h3 { font-size: clamp(1.25rem, 2.5vw, 2rem); }
+h4 { font-size: 1.25rem; }
 
 p {
   margin: 0;
-  line-height: 1.7;
+  line-height: 1.8;
+}
+
+/* Decorative First Letter - Kashmiri Manuscript Style */
+.drop-cap::first-letter {
+  float: left;
+  font-family: var(--font-display);
+  font-size: 4em;
+  line-height: 0.8;
+  padding-right: 0.15em;
+  color: var(--kashmir-burgundy);
+  font-weight: 500;
+}
+
+/* Gold Accent Text */
+.text-kashmir-gold {
+  color: var(--kashmir-gold);
+}
+
+.text-kashmir-burgundy {
+  color: var(--kashmir-burgundy);
 }
 
 a {
   color: inherit;
   text-decoration: none;
-  transition: opacity var(--transition-fast);
+  transition: all var(--transition-fast);
 }
 
 a:hover {
-  opacity: 0.7;
+  color: var(--kashmir-burgundy);
 }
 
-/* Container */
+/* ============================================
+   KASHMIR DECORATIVE ELEMENTS
+   ============================================ */
+
+/* Paisley Border */
+.paisley-border {
+  position: relative;
+}
+
+.paisley-border::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--kashmir-gold) 20%, 
+    var(--kashmir-burgundy) 50%, 
+    var(--kashmir-gold) 80%, 
+    transparent 100%
+  );
+}
+
+/* Embroidery Line - Sozni inspired */
+.embroidery-line {
+  height: 1px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--kashmir-gold) 0px,
+    var(--kashmir-gold) 8px,
+    transparent 8px,
+    transparent 12px,
+    var(--kashmir-burgundy) 12px,
+    var(--kashmir-burgundy) 20px,
+    transparent 20px,
+    transparent 24px
+  );
+  animation: embroideryStitch 3s linear infinite;
+}
+
+@keyframes embroideryStitch {
+  0% { background-position: 0 0; }
+  100% { background-position: 48px 0; }
+}
+
+/* Chinar Leaf Divider */
+.chinar-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem 0;
+}
+
+.chinar-divider::before,
+.chinar-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--kashmir-burgundy) 20%, var(--kashmir-burgundy) 80%, transparent);
+}
+
+/* Floating Chinar Leaf */
+.chinar-leaf {
+  position: fixed;
+  pointer-events: none;
+  z-index: 1000;
+  opacity: 0.6;
+  animation: chinarFall linear forwards;
+}
+
+@keyframes chinarFall {
+  0% {
+    transform: translateY(-100px) rotate(0deg) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg) scale(0.5);
+    opacity: 0;
+  }
+}
+
+/* Kashmir Pattern Background */
+.kashmir-pattern-bg {
+  background-image: var(--paisley-pattern);
+  background-repeat: repeat;
+}
+
+.chinar-pattern-bg {
+  background-image: var(--chinar-pattern);
+  background-repeat: repeat;
+}
+
+/* ============================================
+   CONTAINER
+   ============================================ */
+
 .container {
   width: 100%;
   max-width: 1800px;
@@ -102,7 +266,10 @@ a:hover {
   }
 }
 
-/* Premium Buttons */
+/* ============================================
+   BUTTONS - Kashmir Inspired
+   ============================================ */
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -117,18 +284,54 @@ a:hover {
   border: none;
   cursor: pointer;
   transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
 }
 
+/* Primary Button with Gold shimmer */
 .btn-primary {
-  background-color: var(--color-black);
+  background: linear-gradient(135deg, var(--color-black) 0%, var(--color-gray-800) 100%);
   color: var(--color-white);
 }
 
-.btn-primary:hover {
-  background-color: var(--color-gray-800);
-  opacity: 1;
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(212, 175, 55, 0.2),
+    transparent
+  );
+  transition: left var(--transition-slow);
 }
 
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--kashmir-burgundy) 0%, var(--kashmir-burgundy-deep) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(114, 47, 55, 0.3);
+}
+
+/* Kashmir Gold Button */
+.btn-kashmir {
+  background: linear-gradient(135deg, var(--kashmir-gold) 0%, var(--kashmir-saffron) 100%);
+  color: var(--color-black);
+}
+
+.btn-kashmir:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+}
+
+/* Outline buttons */
 .btn-outline {
   background-color: transparent;
   color: var(--color-white);
@@ -137,8 +340,7 @@ a:hover {
 
 .btn-outline:hover {
   background-color: var(--color-white);
-  color: var(--color-black);
-  opacity: 1;
+  color: var(--kashmir-burgundy);
 }
 
 .btn-outline-dark {
@@ -148,22 +350,68 @@ a:hover {
 }
 
 .btn-outline-dark:hover {
-  background-color: var(--color-black);
+  background-color: var(--kashmir-burgundy);
   color: var(--color-white);
-  opacity: 1;
+  border-color: var(--kashmir-burgundy);
 }
 
-/* Section Label - Minimal caps style */
+/* ============================================
+   SECTION STYLES
+   ============================================ */
+
 .section-label {
   font-size: 0.625rem;
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--color-gray-500);
+  color: var(--kashmir-gold);
   margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
-/* Header Styles */
+.section-label::before {
+  content: '◆';
+  font-size: 0.5rem;
+  color: var(--kashmir-burgundy);
+}
+
+/* Kashmir Section Divider */
+.section-divider {
+  width: 100%;
+  height: 60px;
+  background: linear-gradient(
+    to bottom,
+    var(--kashmir-cream) 0%,
+    var(--kashmir-ivory) 50%,
+    var(--kashmir-cream) 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+.section-divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--kashmir-gold) 0px,
+    var(--kashmir-gold) 4px,
+    transparent 4px,
+    transparent 8px
+  );
+  transform: translateY(-50%);
+}
+
+/* ============================================
+   HEADER - Kashmir Elegance
+   ============================================ */
+
 .header {
   position: fixed;
   top: 0;
@@ -181,9 +429,9 @@ a:hover {
 }
 
 .header-scrolled {
-  background-color: rgba(255, 255, 255, 0.98);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--color-gray-100);
+  background: linear-gradient(to bottom, rgba(251, 249, 244, 0.98), rgba(251, 249, 244, 0.95));
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
 }
 
 .header-transparent {
@@ -197,10 +445,23 @@ a:hover {
 }
 
 .header-logo {
-  font-size: 1.125rem;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
   font-weight: 500;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
+  position: relative;
+}
+
+/* Logo with subtle paisley decoration */
+.header-logo::after {
+  content: '✦';
+  font-size: 0.5rem;
+  position: absolute;
+  top: -2px;
+  right: -12px;
+  color: var(--kashmir-gold);
+  opacity: 0.8;
 }
 
 .header-nav {
@@ -220,7 +481,24 @@ a:hover {
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  transition: opacity var(--transition-fast);
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.header-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--kashmir-gold);
+  transition: all var(--transition-base);
+  transform: translateX(-50%);
+}
+
+.header-nav a:hover::after {
+  width: 100%;
 }
 
 .header-icons {
@@ -234,20 +512,24 @@ a:hover {
   border: none;
   cursor: pointer;
   padding: 0.25rem;
-  transition: opacity var(--transition-fast);
+  transition: all var(--transition-fast);
 }
 
 .header-icons button:hover {
-  opacity: 0.6;
+  color: var(--kashmir-gold);
+  transform: scale(1.1);
 }
 
-/* Mega Menu - Zara style */
+/* ============================================
+   MEGA MENU
+   ============================================ */
+
 .mega-menu {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  background: var(--color-white);
+  background: linear-gradient(to bottom, var(--kashmir-cream), var(--kashmir-ivory));
   opacity: 0;
   visibility: hidden;
   transform: translateY(-100%);
@@ -263,6 +545,18 @@ a:hover {
   transform: translateY(0);
 }
 
+.mega-menu::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background-image: var(--paisley-pattern);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
 .mega-menu-close {
   position: absolute;
   top: 1.5rem;
@@ -272,59 +566,40 @@ a:hover {
   cursor: pointer;
   padding: 0.5rem;
   z-index: 10;
+  transition: all var(--transition-fast);
 }
 
-/* Product Card - Premium minimal style */
-.product-card {
-  display: block;
-  position: relative;
+.mega-menu-close:hover {
+  transform: rotate(90deg);
+  color: var(--kashmir-burgundy);
 }
 
-.product-card-image {
-  position: relative;
-  aspect-ratio: 2/3;
-  overflow: hidden;
-  background-color: var(--color-gray-100);
-  margin-bottom: 1rem;
-}
+/* ============================================
+   HERO SECTION - Kashmir Grandeur
+   ============================================ */
 
-.product-card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform var(--transition-slow);
-}
-
-.product-card:hover .product-card-image img {
-  transform: scale(1.03);
-}
-
-.product-card-info {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.product-card-name {
-  font-size: 0.75rem;
-  font-weight: 400;
-  letter-spacing: 0.02em;
-  color: var(--color-black);
-  line-height: 1.4;
-}
-
-.product-card-price {
-  font-size: 0.75rem;
-  font-weight: 400;
-  color: var(--color-gray-600);
-}
-
-/* Hero Section */
 .hero {
   position: relative;
   height: 100vh;
-  min-height: 600px;
+  min-height: 700px;
   overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(114, 47, 55, 0.1) 0%,
+    transparent 50%,
+    rgba(212, 175, 55, 0.1) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
 }
 
 .hero-slide {
@@ -332,7 +607,7 @@ a:hover {
   inset: 0;
   display: flex;
   align-items: flex-end;
-  padding-bottom: 8vh;
+  padding-bottom: 10vh;
 }
 
 .hero-bg {
@@ -347,115 +622,219 @@ a:hover {
   inset: 0;
   background: linear-gradient(
     to top,
-    rgba(0, 0, 0, 0.5) 0%,
-    rgba(0, 0, 0, 0.2) 30%,
-    rgba(0, 0, 0, 0) 60%
+    rgba(10, 10, 10, 0.7) 0%,
+    rgba(10, 10, 10, 0.3) 40%,
+    rgba(10, 10, 10, 0) 70%
   );
+}
+
+/* Kashmir-inspired corner decorations */
+.hero-corner-tl,
+.hero-corner-tr,
+.hero-corner-bl,
+.hero-corner-br {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  z-index: 2;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.hero-corner-tl {
+  top: 20px;
+  left: 20px;
+  border-top: 2px solid var(--kashmir-gold);
+  border-left: 2px solid var(--kashmir-gold);
+}
+
+.hero-corner-tr {
+  top: 20px;
+  right: 20px;
+  border-top: 2px solid var(--kashmir-gold);
+  border-right: 2px solid var(--kashmir-gold);
+}
+
+.hero-corner-bl {
+  bottom: 20px;
+  left: 20px;
+  border-bottom: 2px solid var(--kashmir-gold);
+  border-left: 2px solid var(--kashmir-gold);
+}
+
+.hero-corner-br {
+  bottom: 20px;
+  right: 20px;
+  border-bottom: 2px solid var(--kashmir-gold);
+  border-right: 2px solid var(--kashmir-gold);
+}
+
+@media (min-width: 768px) {
+  .hero-corner-tl,
+  .hero-corner-tr,
+  .hero-corner-bl,
+  .hero-corner-br {
+    width: 200px;
+    height: 200px;
+  }
 }
 
 .hero-content {
   position: relative;
   z-index: 10;
   color: var(--color-white);
-  max-width: 600px;
+  max-width: 700px;
 }
 
 .hero-label {
   font-size: 0.625rem;
   font-weight: 500;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
   margin-bottom: 1.5rem;
-  opacity: 0.8;
+  color: var(--kashmir-gold);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.hero-label::before {
+  content: '';
+  width: 30px;
+  height: 1px;
+  background: var(--kashmir-gold);
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 7vw, 5rem);
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 6rem);
   font-weight: 300;
   letter-spacing: -0.02em;
   line-height: 1;
   margin-bottom: 1.5rem;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 }
 
 .hero-description {
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 300;
-  line-height: 1.7;
+  line-height: 1.8;
   opacity: 0.9;
   margin-bottom: 2.5rem;
-  max-width: 450px;
+  max-width: 500px;
 }
 
 /* Carousel Dots */
 .carousel-dots {
   position: absolute;
-  bottom: 2rem;
+  bottom: 3rem;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 0.75rem;
+  gap: 1rem;
   z-index: 20;
 }
 
 .carousel-dot {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.4);
-  border: none;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 1px solid var(--kashmir-gold);
   cursor: pointer;
   transition: all var(--transition-fast);
   padding: 0;
 }
 
 .carousel-dot.active {
-  background-color: var(--color-white);
+  background-color: var(--kashmir-gold);
+  transform: scale(1.3);
 }
 
-/* Grid Layouts */
-.grid-2 {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1px;
+/* ============================================
+   PRODUCT CARDS - Kashmir Elegance
+   ============================================ */
+
+.product-card {
+  display: block;
+  position: relative;
+  background: var(--color-white);
+  transition: all var(--transition-base);
 }
 
-@media (min-width: 768px) {
-  .grid-2 {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.product-card:hover {
+  box-shadow: 0 15px 40px rgba(114, 47, 55, 0.08);
 }
 
-.grid-3 {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1px;
+.product-card-image {
+  position: relative;
+  aspect-ratio: 2/3;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--kashmir-ivory) 0%, var(--color-gray-100) 100%);
+  margin-bottom: 1rem;
 }
 
-@media (min-width: 1024px) {
-  .grid-3 {
-    grid-template-columns: repeat(3, 1fr);
-  }
+/* Gold corner accent on hover */
+.product-card-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 40px 40px 0;
+  border-color: transparent var(--kashmir-gold) transparent transparent;
+  z-index: 2;
+  opacity: 0;
+  transition: all var(--transition-base);
 }
 
-.grid-4 {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1px;
+.product-card:hover .product-card-image::before {
+  opacity: 1;
 }
 
-@media (min-width: 768px) {
-  .grid-4 {
-    grid-template-columns: repeat(3, 1fr);
-  }
+.product-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slower);
 }
 
-@media (min-width: 1280px) {
-  .grid-4 {
-    grid-template-columns: repeat(4, 1fr);
-  }
+.product-card:hover .product-card-image img {
+  transform: scale(1.05);
 }
 
-/* Collection Block - Zara editorial style */
+.product-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  padding: 0 0.5rem 1rem;
+}
+
+.product-card-name {
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: var(--color-black);
+  line-height: 1.4;
+  transition: color var(--transition-fast);
+}
+
+.product-card:hover .product-card-name {
+  color: var(--kashmir-burgundy);
+}
+
+.product-card-price {
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: var(--kashmir-gold);
+}
+
+/* ============================================
+   COLLECTION BLOCKS
+   ============================================ */
+
 .collection-block {
   position: relative;
   overflow: hidden;
@@ -479,11 +858,26 @@ a:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform var(--transition-slow);
+  transition: transform var(--transition-slower);
 }
 
 .collection-block:hover img {
-  transform: scale(1.02);
+  transform: scale(1.03);
+}
+
+/* Paisley overlay on hover */
+.collection-block::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: var(--paisley-pattern);
+  opacity: 0;
+  transition: opacity var(--transition-slow);
+  pointer-events: none;
+}
+
+.collection-block:hover::after {
+  opacity: 0.3;
 }
 
 .collection-block-content {
@@ -491,21 +885,26 @@ a:hover {
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 2rem;
+  padding: 2.5rem;
   color: var(--color-white);
-  background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+  background: linear-gradient(
+    to top,
+    rgba(10, 10, 10, 0.8) 0%,
+    rgba(10, 10, 10, 0.4) 60%,
+    transparent 100%
+  );
 }
 
 @media (min-width: 768px) {
   .collection-block-content {
-    padding: 3rem;
+    padding: 3.5rem;
   }
 }
 
 .collection-block-title {
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
-  font-weight: 300;
-  letter-spacing: -0.01em;
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3vw, 3rem);
+  font-weight: 400;
   margin-bottom: 1rem;
 }
 
@@ -517,15 +916,42 @@ a:hover {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  border-bottom: 1px solid currentColor;
+  color: var(--kashmir-gold);
+  border-bottom: 1px solid var(--kashmir-gold);
   padding-bottom: 0.25rem;
+  transition: all var(--transition-fast);
 }
 
-/* Footer - Minimal Zara style */
+.collection-block-link:hover {
+  gap: 1rem;
+}
+
+/* ============================================
+   FOOTER - Kashmir Night
+   ============================================ */
+
 .footer {
-  background-color: var(--color-black);
+  background: linear-gradient(
+    135deg,
+    var(--kashmir-burgundy-deep) 0%,
+    var(--color-black) 100%
+  );
   color: var(--color-white);
-  padding: 4rem 0 2rem;
+  padding: 5rem 0 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: var(--paisley-pattern);
+  opacity: 0.05;
+  pointer-events: none;
 }
 
 .footer-grid {
@@ -533,6 +959,7 @@ a:hover {
   grid-template-columns: 1fr;
   gap: 3rem;
   margin-bottom: 4rem;
+  position: relative;
 }
 
 @media (min-width: 768px) {
@@ -550,10 +977,10 @@ a:hover {
 .footer-title {
   font-size: 0.625rem;
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
   margin-bottom: 1.5rem;
-  color: var(--color-gray-400);
+  color: var(--kashmir-gold);
 }
 
 .footer-links {
@@ -563,18 +990,34 @@ a:hover {
 }
 
 .footer-links li {
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.875rem;
 }
 
 .footer-links a {
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   color: var(--color-gray-300);
-  transition: color var(--transition-fast);
+  transition: all var(--transition-fast);
+  position: relative;
+  padding-left: 0;
 }
 
 .footer-links a:hover {
-  color: var(--color-white);
+  color: var(--kashmir-gold);
+  padding-left: 0.5rem;
+}
+
+.footer-links a::before {
+  content: '›';
+  position: absolute;
+  left: -0.5rem;
+  opacity: 0;
+  color: var(--kashmir-gold);
+  transition: all var(--transition-fast);
+}
+
+.footer-links a:hover::before {
   opacity: 1;
+  left: -0.75rem;
 }
 
 .footer-social {
@@ -584,23 +1027,35 @@ a:hover {
 
 .footer-social a {
   color: var(--color-gray-400);
-  transition: color var(--transition-fast);
+  transition: all var(--transition-fast);
 }
 
 .footer-social a:hover {
-  color: var(--color-white);
-  opacity: 1;
+  color: var(--kashmir-gold);
+  transform: translateY(-3px);
 }
 
 .footer-bottom {
-  border-top: 1px solid var(--color-gray-800);
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
   padding-top: 2rem;
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   color: var(--color-gray-500);
   text-align: center;
+  position: relative;
 }
 
-/* Cart Drawer - Premium style */
+.footer-bottom::before {
+  content: '❈';
+  display: block;
+  font-size: 1rem;
+  color: var(--kashmir-gold);
+  margin-bottom: 1rem;
+}
+
+/* ============================================
+   CART DRAWER
+   ============================================ */
+
 .cart-drawer {
   position: fixed;
   top: 0;
@@ -608,7 +1063,7 @@ a:hover {
   bottom: 0;
   width: 100%;
   max-width: 420px;
-  background-color: var(--color-white);
+  background: linear-gradient(to bottom, var(--kashmir-cream), var(--color-white));
   z-index: 200;
   transform: translateX(100%);
   transition: transform var(--transition-base);
@@ -623,7 +1078,7 @@ a:hover {
 .cart-drawer-overlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(10, 10, 10, 0.6);
   z-index: 199;
   opacity: 0;
   visibility: hidden;
@@ -640,14 +1095,14 @@ a:hover {
   align-items: center;
   justify-content: space-between;
   padding: 1.5rem;
-  border-bottom: 1px solid var(--color-gray-200);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.3);
 }
 
 .cart-drawer-title {
-  font-size: 0.6875rem;
+  font-family: var(--font-display);
+  font-size: 1rem;
   font-weight: 500;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
 .cart-drawer-content {
@@ -658,24 +1113,28 @@ a:hover {
 
 .cart-drawer-footer {
   padding: 1.5rem;
-  border-top: 1px solid var(--color-gray-200);
+  border-top: 1px solid rgba(212, 175, 55, 0.3);
+  background: var(--kashmir-ivory);
 }
 
-/* WhatsApp Button */
+/* ============================================
+   WHATSAPP BUTTON - Kashmir Touch
+   ============================================ */
+
 .whatsapp-btn {
   position: fixed;
   bottom: 1.25rem;
   right: 1.25rem;
-  width: 3rem;
-  height: 3rem;
-  background-color: #25D366;
+  width: 3.25rem;
+  height: 3.25rem;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
   color: white;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 50;
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  transition: all var(--transition-fast);
   box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
 }
 
@@ -689,26 +1148,143 @@ a:hover {
 }
 
 .whatsapp-btn:hover {
-  transform: scale(1.05);
+  transform: scale(1.1) rotate(10deg);
+  box-shadow: 0 6px 30px rgba(37, 211, 102, 0.5);
+}
+
+/* ============================================
+   KASHMIR ANIMATIONS
+   ============================================ */
+
+/* Fade In */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Slide Up */
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Kashmir Reveal - with gold line */
+@keyframes kashmirReveal {
+  0% {
+    clip-path: inset(0 100% 0 0);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* Shimmer Animation */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Float Animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Pulse Gold */
+@keyframes pulseGold {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 15px rgba(212, 175, 55, 0);
+  }
+}
+
+/* Water Ripple - Dal Lake */
+@keyframes ripple {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* Snow Fall */
+@keyframes snowfall {
+  0% {
+    transform: translateY(-10px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0.3;
+  }
+}
+
+/* Stitch Draw */
+@keyframes stitchDraw {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Animation Classes */
+.animate-fade-in {
+  animation: fadeIn var(--transition-slow) ease forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp var(--transition-slow) ease forwards;
+}
+
+.animate-kashmir-reveal {
+  animation: kashmirReveal 1s ease forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-gold {
+  animation: pulseGold 2s ease infinite;
+}
+
+/* Scroll Animation Triggers */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all var(--transition-slower) ease;
+}
+
+[data-animate].visible {
   opacity: 1;
-  box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+  transform: translateY(0);
 }
 
-/* Mobile touch target improvements */
-@media (max-width: 767px) {
-  /* Ensure form inputs have proper touch targets */
-  input, select, textarea {
-    min-height: 48px;
-  }
-  
-  /* Mobile-specific button styles */
-  .btn {
-    padding: 0.875rem 1.5rem;
-    min-height: 48px;
-  }
-}
+/* ============================================
+   FORM INPUTS - Kashmir Style
+   ============================================ */
 
-/* Form Inputs - Premium style */
 input, select, textarea {
   font-family: var(--font-primary);
   font-size: 0.875rem;
@@ -725,67 +1301,39 @@ textarea {
   padding: 1rem;
   border: 1px solid var(--color-gray-300);
   background-color: var(--color-white);
-  transition: border-color var(--transition-fast);
+  transition: all var(--transition-fast);
 }
 
 input:focus,
 select:focus,
 textarea:focus {
   outline: none;
-  border-color: var(--color-black);
+  border-color: var(--kashmir-gold);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
+/* ============================================
+   LOADING & SKELETON
+   ============================================ */
 
-@keyframes slideUp {
-  from { 
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to { 
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in {
-  animation: fadeIn var(--transition-slow) ease forwards;
-}
-
-.animate-slide-up {
-  animation: slideUp var(--transition-slow) ease forwards;
-}
-
-/* Loading skeleton */
 .skeleton {
-  background: linear-gradient(90deg, var(--color-gray-100) 25%, var(--color-gray-50) 50%, var(--color-gray-100) 75%);
+  background: linear-gradient(
+    90deg, 
+    var(--kashmir-ivory) 25%, 
+    var(--color-white) 50%, 
+    var(--kashmir-ivory) 75%
+  );
   background-size: 200% 100%;
-  animation: skeleton-loading 1.5s infinite;
+  animation: shimmer 1.5s infinite;
 }
 
-@keyframes skeleton-loading {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
-}
+/* ============================================
+   SCROLL INDICATOR
+   ============================================ */
 
-/* Page transitions */
-.page-enter {
-  opacity: 0;
-}
-
-.page-enter-active {
-  opacity: 1;
-  transition: opacity var(--transition-base);
-}
-
-/* Scroll indicator */
 .scroll-indicator {
   position: absolute;
-  bottom: 3rem;
+  bottom: 4rem;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -793,35 +1341,39 @@ textarea:focus {
   align-items: center;
   gap: 0.5rem;
   color: var(--color-white);
-  font-size: 0.625rem;
-  letter-spacing: 0.15em;
+  font-size: 0.5625rem;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  opacity: 0.7;
   z-index: 20;
 }
 
 .scroll-indicator-line {
   width: 1px;
-  height: 40px;
-  background: linear-gradient(to bottom, var(--color-white), transparent);
+  height: 50px;
+  background: linear-gradient(to bottom, var(--kashmir-gold), transparent);
   animation: scrollPulse 2s infinite;
 }
 
 @keyframes scrollPulse {
-  0%, 100% { opacity: 0.3; transform: scaleY(1); }
+  0%, 100% { opacity: 0.4; transform: scaleY(1); }
   50% { opacity: 1; transform: scaleY(1.2); }
 }
 
-/* Utility Classes */
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
 .text-display {
+  font-family: var(--font-display);
   font-size: clamp(3rem, 8vw, 6rem);
   font-weight: 300;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
   line-height: 0.95;
 }
 
 .text-display-sm {
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 4rem);
   font-weight: 300;
   letter-spacing: -0.02em;
   line-height: 1;
@@ -829,12 +1381,12 @@ textarea:focus {
 
 .text-body-lg {
   font-size: 1rem;
-  line-height: 1.7;
+  line-height: 1.8;
 }
 
 .text-body {
   font-size: 0.875rem;
-  line-height: 1.7;
+  line-height: 1.8;
 }
 
 .text-small {
@@ -845,8 +1397,26 @@ textarea:focus {
 .text-caps {
   font-size: 0.625rem;
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
+}
+
+/* Kashmir Gradient Backgrounds */
+.bg-kashmir-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--kashmir-cream) 0%,
+    var(--kashmir-ivory) 50%,
+    var(--kashmir-cream) 100%
+  );
+}
+
+.bg-kashmir-dark {
+  background: linear-gradient(
+    135deg,
+    var(--kashmir-burgundy-deep) 0%,
+    var(--color-black) 100%
+  );
 }
 
 /* Hide scrollbar */
@@ -866,4 +1436,147 @@ img {
 
 img[data-loading="true"] {
   opacity: 0;
+}
+
+/* ============================================
+   MOBILE IMPROVEMENTS
+   ============================================ */
+
+@media (max-width: 767px) {
+  input, select, textarea {
+    min-height: 48px;
+  }
+  
+  .btn {
+    padding: 0.875rem 1.5rem;
+    min-height: 48px;
+  }
+}
+
+/* ============================================
+   KASHMIR SPECIAL ELEMENTS
+   ============================================ */
+
+/* Quote Block with Paisley */
+.kashmir-quote {
+  position: relative;
+  padding: 3rem;
+  background: var(--kashmir-ivory);
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-style: italic;
+  text-align: center;
+  color: var(--kashmir-burgundy);
+}
+
+.kashmir-quote::before,
+.kashmir-quote::after {
+  content: '❝';
+  font-size: 3rem;
+  color: var(--kashmir-gold);
+  opacity: 0.3;
+  position: absolute;
+}
+
+.kashmir-quote::before {
+  top: 1rem;
+  left: 1rem;
+}
+
+.kashmir-quote::after {
+  content: '❞';
+  bottom: 1rem;
+  right: 1rem;
+}
+
+/* Feature Card with Kashmir Border */
+.kashmir-card {
+  background: var(--color-white);
+  padding: 2rem;
+  position: relative;
+  transition: all var(--transition-base);
+}
+
+.kashmir-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--kashmir-gold), var(--kashmir-burgundy), var(--kashmir-gold));
+  transform: scaleX(0);
+  transition: transform var(--transition-base);
+}
+
+.kashmir-card:hover::before {
+  transform: scaleX(1);
+}
+
+.kashmir-card:hover {
+  box-shadow: 0 10px 40px rgba(114, 47, 55, 0.1);
+}
+
+/* Stat Number with Gold */
+.kashmir-stat {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 300;
+  color: var(--kashmir-gold);
+  line-height: 1;
+}
+
+/* Badge */
+.kashmir-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, var(--kashmir-gold) 0%, var(--kashmir-saffron) 100%);
+  color: var(--color-black);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Lotus Divider */
+.lotus-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.5rem 0;
+  color: var(--kashmir-gold);
+  font-size: 1.5rem;
+}
+
+.lotus-divider::before,
+.lotus-divider::after {
+  content: '';
+  flex: 1;
+  max-width: 100px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--kashmir-gold));
+}
+
+.lotus-divider::after {
+  background: linear-gradient(90deg, var(--kashmir-gold), transparent);
+}
+
+/* Mountain Silhouette Footer */
+.mountain-bg {
+  position: relative;
+}
+
+.mountain-bg::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 150' preserveAspectRatio='none'%3E%3Cpath fill='%23722F37' fill-opacity='0.1' d='M0,150 L0,100 L200,60 L400,90 L600,40 L800,80 L1000,30 L1200,70 L1440,50 L1440,150 Z'/%3E%3Cpath fill='%23D4AF37' fill-opacity='0.05' d='M0,150 L0,120 L150,90 L350,110 L550,70 L750,100 L950,60 L1150,95 L1350,75 L1440,85 L1440,150 Z'/%3E%3C/svg%3E") no-repeat bottom center;
+  background-size: cover;
+  pointer-events: none;
 }

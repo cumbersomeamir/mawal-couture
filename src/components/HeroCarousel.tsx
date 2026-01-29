@@ -1,12 +1,14 @@
 "use client";
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
+import { PaisleySVG } from './KashmirElements';
 
 const slides = [
   {
     id: 1,
     label: "Winter 2025/26",
     title: "New Season",
+    subtitle: "Kashmir Heritage",
     description: "Rooted in fine wool and timeless form. Heritage craftsmanship meets contemporary design.",
     cta: "Explore Women",
     link: "/products?collection=winter-edit-2025-26&gender=woman",
@@ -16,6 +18,7 @@ const slides = [
     id: 2,
     label: "Men's Collection",
     title: "The Vanguard",
+    subtitle: "Modern Tradition",
     description: "Modern interpretations of the iconic Kashmiri pheran. Structure, warmth, restraint.",
     cta: "Shop Men",
     link: "/products?collection=vanguard-pherans&gender=man",
@@ -25,6 +28,7 @@ const slides = [
     id: 3,
     label: "Heritage Craft",
     title: "Pure Pashmina",
+    subtitle: "Himalayan Cashmere",
     description: "Handwoven from the finest Himalayan cashmere. A testament to artisan mastery.",
     cta: "Discover",
     link: "/products?collection=pure-pashmina",
@@ -53,7 +57,25 @@ export default function HeroCarousel() {
   }, [nextSlide]);
 
   return (
-    <section className="relative h-screen min-h-[550px] lg:min-h-[600px] overflow-hidden bg-black">
+    <section className="relative h-screen min-h-[600px] lg:min-h-[700px] overflow-hidden bg-black">
+      {/* Kashmir Corner Decorations */}
+      <div className="absolute top-6 left-6 lg:top-10 lg:left-10 z-30 pointer-events-none">
+        <div className="w-20 h-20 lg:w-32 lg:h-32 border-t-2 border-l-2 border-[#D4AF37] opacity-50">
+          <PaisleySVG size={20} color="#D4AF37" className="absolute top-3 left-3 opacity-60" />
+        </div>
+      </div>
+      <div className="absolute top-6 right-6 lg:top-10 lg:right-10 z-30 pointer-events-none">
+        <div className="w-20 h-20 lg:w-32 lg:h-32 border-t-2 border-r-2 border-[#D4AF37] opacity-50">
+          <PaisleySVG size={20} color="#D4AF37" className="absolute top-3 right-3 opacity-60 -scale-x-100" />
+        </div>
+      </div>
+      <div className="absolute bottom-24 left-6 lg:bottom-28 lg:left-10 z-30 pointer-events-none">
+        <div className="w-20 h-20 lg:w-32 lg:h-32 border-b-2 border-l-2 border-[#D4AF37] opacity-50" />
+      </div>
+      <div className="absolute bottom-24 right-6 lg:bottom-28 lg:right-10 z-30 pointer-events-none">
+        <div className="w-20 h-20 lg:w-32 lg:h-32 border-b-2 border-r-2 border-[#D4AF37] opacity-50" />
+      </div>
+
       {slides.map((slide, index) => (
         <div
           key={slide.id}
@@ -70,33 +92,68 @@ export default function HeroCarousel() {
             }}
           />
           
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/10" />
+          {/* Kashmir-inspired gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-[#722F37]/10" />
+          
+          {/* Subtle paisley pattern overlay */}
+          <div 
+            className="absolute inset-0 opacity-5 pointer-events-none"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5c-8 0-15 7-15 20s7 30 15 30 15-17 15-30S38 5 30 5zm0 5c5 0 10 5 10 15s-5 25-10 25-10-15-10-25 5-15 10-15z' fill='%23D4AF37' fill-opacity='1'/%3E%3C/svg%3E")`,
+              backgroundRepeat: 'repeat'
+            }}
+          />
           
           {/* Content */}
-          <div className="absolute inset-0 flex items-end pb-20 lg:pb-32">
+          <div className="absolute inset-0 flex items-end pb-24 lg:pb-36">
             <div className="container">
               <div 
-                className={`max-w-lg transition-all duration-1000 delay-200 ${
+                className={`max-w-xl transition-all duration-1000 delay-200 ${
                   index === currentSlide 
                     ? 'opacity-100 translate-y-0' 
-                    : 'opacity-0 translate-y-6'
+                    : 'opacity-0 translate-y-8'
                 }`}
               >
-                <p className="text-[9px] lg:text-[10px] font-medium tracking-[0.3em] uppercase text-white/60 mb-3 lg:mb-4">
-                  {slide.label}
+                {/* Label with decorative line */}
+                <div className="flex items-center gap-3 mb-4 lg:mb-6">
+                  <span className="w-8 lg:w-12 h-px bg-[#D4AF37]" />
+                  <p className="text-[9px] lg:text-[11px] font-medium tracking-[0.35em] uppercase text-[#D4AF37]">
+                    {slide.label}
+                  </p>
+                </div>
+                
+                {/* Subtitle */}
+                <p className="text-[10px] lg:text-[12px] font-light tracking-[0.2em] uppercase text-white/50 mb-2 lg:mb-3">
+                  {slide.subtitle}
                 </p>
-                <h1 className="text-3xl lg:text-6xl font-light text-white tracking-tight mb-3 lg:mb-4">
+                
+                {/* Title with display font */}
+                <h1 className="text-4xl lg:text-7xl font-light text-white tracking-tight mb-4 lg:mb-6" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
                   {slide.title}
                 </h1>
-                <p className="text-[12px] lg:text-[13px] text-white/80 leading-relaxed mb-6 lg:mb-8 max-w-[280px] lg:max-w-sm">
+                
+                {/* Description */}
+                <p className="text-[13px] lg:text-[15px] text-white/75 leading-relaxed mb-8 lg:mb-10 max-w-md">
                   {slide.description}
                 </p>
+                
+                {/* CTA Button with Kashmir styling */}
                 <Link 
                   href={slide.link} 
-                  className="inline-flex items-center h-12 text-[11px] font-medium tracking-[0.15em] uppercase text-white border-b border-white/60 pb-1 hover:border-white transition-colors"
+                  className="group inline-flex items-center gap-4 text-[11px] lg:text-[12px] font-medium tracking-[0.2em] uppercase text-[#D4AF37] hover:text-white transition-colors"
                 >
-                  {slide.cta}
+                  <span className="relative">
+                    {slide.cta}
+                    <span className="absolute -bottom-1 left-0 w-full h-px bg-[#D4AF37] group-hover:bg-white transition-colors" />
+                  </span>
+                  <svg 
+                    className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke="currentColor"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
                 </Link>
               </div>
             </div>
@@ -104,32 +161,41 @@ export default function HeroCarousel() {
         </div>
       ))}
 
-      {/* Navigation Dots */}
-      <div className="absolute bottom-6 lg:bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-20">
+      {/* Navigation Dots - Kashmir styled */}
+      <div className="absolute bottom-8 lg:bottom-10 left-1/2 -translate-x-1/2 flex items-center gap-4 z-20">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`w-2 h-2 rounded-full transition-all duration-300 min-w-[44px] min-h-[44px] flex items-center justify-center ${
-              index === currentSlide 
-                ? 'bg-white' 
-                : 'bg-white/40'
-            }`}
+            className="group relative min-w-[44px] min-h-[44px] flex items-center justify-center"
             aria-label={`Go to slide ${index + 1}`}
           >
-            <span className={`block rounded-full transition-all duration-300 ${
+            <span className={`block rounded-full transition-all duration-500 ${
               index === currentSlide 
-                ? 'w-6 h-2 bg-white' 
-                : 'w-2 h-2 bg-white/40'
+                ? 'w-8 h-2 bg-[#D4AF37]' 
+                : 'w-2 h-2 bg-white/40 group-hover:bg-white/60'
             }`} />
+            {/* Ring on active */}
+            {index === currentSlide && (
+              <span className="absolute inset-0 m-auto w-12 h-6 border border-[#D4AF37]/30 rounded-full animate-pulse-gold" />
+            )}
           </button>
         ))}
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-6 lg:bottom-8 right-6 lg:right-8 hidden lg:flex items-center gap-3 text-white/50 z-20">
-        <span className="text-[10px] tracking-[0.2em] uppercase">Scroll</span>
-        <div className="w-px h-8 bg-gradient-to-b from-white/40 to-transparent" />
+      {/* Scroll Indicator - Kashmir styled */}
+      <div className="absolute bottom-8 lg:bottom-10 right-6 lg:right-10 hidden lg:flex flex-col items-center gap-3 text-white/50 z-20">
+        <span className="text-[9px] tracking-[0.25em] uppercase writing-vertical" style={{ writingMode: 'vertical-rl' }}>
+          Scroll
+        </span>
+        <div className="w-px h-12 bg-gradient-to-b from-[#D4AF37]/60 to-transparent animate-pulse" />
+      </div>
+
+      {/* Slide Counter */}
+      <div className="absolute bottom-8 lg:bottom-10 left-6 lg:left-10 text-white/40 z-20 hidden lg:block">
+        <span className="text-[#D4AF37] text-lg font-light">0{currentSlide + 1}</span>
+        <span className="mx-2">/</span>
+        <span className="text-sm">0{slides.length}</span>
       </div>
     </section>
   );
