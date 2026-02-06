@@ -1,12 +1,14 @@
 "use client";
 import Link from 'next/link';
-import { 
-  ChinarLeafSVG, 
-  PaisleySVG, 
-  EmbroideryLine, 
+import {
+  ChinarLeafSVG,
+  PaisleySVG,
+  LotusSVG,
+  EmbroideryLine,
   ScrollReveal,
+  KashmirQuote,
   LotusDivider,
-  MountainSilhouette 
+  MountainSilhouette
 } from '../../components/KashmirElements';
 
 const collections = [
@@ -203,8 +205,52 @@ export default function WomanPage() {
         </div>
       </section>
       
-      {/* Mountain silhouette */}
-      <MountainSilhouette className="opacity-30" />
+      {/* Quote Section */}
+      <section className="py-16 lg:py-24 relative">
+        <div className="absolute inset-0 chinar-pattern-bg opacity-30" />
+        <div className="container relative">
+          <ScrollReveal>
+            <div className="max-w-3xl mx-auto">
+              <KashmirQuote author="Mawal Couture">
+                Each garment carries the warmth of Kashmir&apos;s heritage and the elegance
+                of modern design &mdash; woven by hands that have perfected their craft
+                over generations.
+              </KashmirQuote>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="relative py-20 lg:py-32 overflow-hidden bg-kashmir-dark">
+        <div className="absolute inset-0 kashmir-pattern-bg opacity-5 pointer-events-none" />
+        <MountainSilhouette className="opacity-20" />
+
+        <div className="container relative text-center px-6">
+          <ScrollReveal>
+            <LotusSVG size={45} color="#D4AF37" className="mx-auto mb-6 animate-float" />
+
+            <h2
+              className="text-2xl lg:text-4xl font-light text-white mb-4"
+              style={{ fontFamily: "'Cormorant Garamond', serif" }}
+            >
+              Explore the full collection
+            </h2>
+            <p className="text-[13px] text-white/60 mb-8 max-w-md mx-auto">
+              Discover handcrafted pieces rooted in Kashmir&apos;s rich tradition.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md sm:max-w-none mx-auto">
+              <Link href="/products?gender=woman" className="btn btn-kashmir">
+                Shop All Women
+              </Link>
+              <Link href="/about" className="btn btn-outline">
+                Our Story
+              </Link>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
     </main>
   );
 }
