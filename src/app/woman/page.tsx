@@ -188,8 +188,6 @@ export default function WomanPage() {
                       alt={collection.title}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    {/* Gold corner on hover */}
-                    <div className="absolute top-0 right-0 w-0 h-0 border-l-[40px] border-l-transparent border-t-[40px] border-t-[#D4AF37] opacity-0 group-hover:opacity-100 transition-opacity" />
                   </div>
                 </div>
                 <h3 
