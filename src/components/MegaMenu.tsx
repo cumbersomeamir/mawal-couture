@@ -13,13 +13,6 @@ const womanCollections = [
   { name: "Kaftan", slug: "kaftan" },
 ];
 
-const manCollections = [
-  { name: "View All", slug: "", featured: true },
-  { name: "Winter Edit 2025/26", slug: "winter-edit-2025-26" },
-  { name: "Khandar", slug: "khandar" },
-  { name: "Wyath", slug: "wyath" },
-  { name: "The Vanguard Pherans", slug: "vanguard-pherans" },
-];
 
 interface MegaMenuProps {
   activeMenu: string | null;
@@ -29,11 +22,9 @@ interface MegaMenuProps {
 }
 
 export default function MegaMenu({ activeMenu, setActiveMenu, onMouseEnter, onMouseLeave }: MegaMenuProps) {
-  const collections = activeMenu === 'woman' ? womanCollections : manCollections;
-  const gender = activeMenu === 'woman' ? 'woman' : 'man';
-  const featuredImage = activeMenu === 'woman' 
-    ? "https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=400&auto=format&fit=crop"
-    : "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=400&auto=format&fit=crop";
+  const collections = womanCollections;
+  const gender = 'woman';
+  const featuredImage = "https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=400&auto=format&fit=crop";
 
   return (
     <div 

@@ -15,16 +15,6 @@ const slides = [
     image: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=1920&auto=format&fit=crop"
   },
   {
-    id: 2,
-    label: "Men's Collection",
-    title: "The Vanguard",
-    subtitle: "Modern Tradition",
-    description: "Modern interpretations of the iconic Kashmiri pheran. Structure, warmth, restraint.",
-    cta: "Shop Men",
-    link: "/products?collection=vanguard-pherans&gender=man",
-    image: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=1920&auto=format&fit=crop"
-  },
-  {
     id: 3,
     label: "Heritage Craft",
     title: "Pure Pashmina",

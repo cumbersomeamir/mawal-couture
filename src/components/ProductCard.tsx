@@ -21,8 +21,6 @@ export default function ProductCard({ product }: { product: Product }) {
   return (
     <Link href={productUrl} className="block group">
       <div className="relative aspect-[3/4] overflow-hidden bg-gradient-to-br from-[#F5F0E6] to-[#E5E5E5] mb-3 lg:mb-4">
-        {/* Gold corner accent on hover */}
-        <div className="absolute top-0 right-0 w-0 h-0 border-l-[50px] border-l-transparent border-t-[50px] border-t-[#D4AF37] opacity-0 group-hover:opacity-100 transition-all duration-500 z-10" />
         
         {/* Featured or New badge */}
         {(product.featured || product.newArrival) && (

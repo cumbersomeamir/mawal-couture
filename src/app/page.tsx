@@ -1,9 +1,8 @@
 import Link from 'next/link';
 import HeroCarousel from '../components/HeroCarousel';
 import { 
-  EmbroideryLine, 
-  LotusDivider, 
-  KashmirQuote, 
+  EmbroideryLine,
+  KashmirQuote,
   KashmirSectionHeader,
   ScrollReveal,
   MountainSilhouette,
@@ -93,61 +92,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Lotus Divider */}
-          <LotusDivider className="mb-20" />
-
-          {/* Men's Collection - Centered Layout */}
-          <ScrollReveal>
-            <div className="text-center mb-12">
-              <h2 className="text-3xl lg:text-4xl font-light tracking-tight mb-6 text-gray-900">
-                The Latest Men&apos;s Winter Collection 2025/26
-              </h2>
-              <p className="text-[14px] leading-relaxed text-gray-600 max-w-2xl mx-auto">
-                Designed for men, this winter collection is built on structure, warmth, and restraint.
-                Crafted in premium wool, each piece reflects timeless silhouettes and functional elegance.
-                Subtle motifs and heritage detailing add depth without excess.
-              </p>
-            </div>
-          </ScrollReveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-8">
-            <ScrollReveal delay={100}>
-              <Link href="/products?collection=winter-edit-2025-26&gender=man" className="block group">
-                <div className="aspect-[4/5] overflow-hidden bg-kashmir-ivory relative">
-                  <img 
-                    src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=800&auto=format&fit=crop"
-                    alt="Men's Winter Collection"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  {/* Gold corner on hover */}
-                  <div className="absolute top-0 right-0 w-0 h-0 border-l-[60px] border-l-transparent border-t-[60px] border-t-kashmir-gold opacity-0 group-hover:opacity-100 transition-opacity" />
-                </div>
-              </Link>
-            </ScrollReveal>
-            <ScrollReveal delay={200}>
-              <Link href="/products?collection=vanguard-pherans&gender=man" className="block group">
-                <div className="aspect-[4/5] overflow-hidden bg-kashmir-ivory relative">
-                  <img 
-                    src="https://images.unsplash.com/photo-1617137968427-85924c800a22?q=80&w=800&auto=format&fit=crop"
-                    alt="Men's Vanguard Pherans"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute top-0 right-0 w-0 h-0 border-l-[60px] border-l-transparent border-t-[60px] border-t-kashmir-gold opacity-0 group-hover:opacity-100 transition-opacity" />
-                </div>
-              </Link>
-            </ScrollReveal>
-          </div>
-
-          <ScrollReveal className="text-center">
-            <Link 
-              href="/products?gender=man" 
-              className="inline-flex items-center gap-3 text-[11px] font-medium tracking-[0.2em] uppercase group"
-            >
-              <span className="w-8 h-px bg-kashmir-burgundy group-hover:w-12 transition-all" />
-              <span className="text-kashmir-burgundy">Explore</span>
-              <span className="w-8 h-px bg-kashmir-burgundy group-hover:w-12 transition-all" />
-            </Link>
-          </ScrollReveal>
         </div>
       </section>
 

@@ -42,7 +42,6 @@ export default function Footer() {
             <ul className="space-y-4">
               {[
                 { href: '/products?gender=woman', label: 'Woman' },
-                { href: '/products?gender=man', label: 'Man' },
                 { href: '/products', label: 'All Products' },
                 { href: '/products?collection=pure-pashmina', label: 'Pashmina' },
               ].map((item) => (

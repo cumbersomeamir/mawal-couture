@@ -90,21 +90,7 @@ export default function Header() {
                     activeMenu === 'woman' ? 'w-full' : 'w-0'
                   }`} />
                 </div>
-                <div 
-                  className="relative"
-                  onMouseEnter={() => handleMouseEnter('man')}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  <button className={`text-[11px] font-medium tracking-[0.15em] uppercase py-6 transition-all text-[#0A0A0A] ${
-                    activeMenu === 'man' ? 'text-[#D4AF37]' : 'hover:text-[#722F37]'
-                  }`}>
-                    MAN
-                  </button>
-                  <span className={`absolute bottom-4 left-0 h-0.5 bg-[#D4AF37] transition-all duration-300 ${
-                    activeMenu === 'man' ? 'w-full' : 'w-0'
-                  }`} />
-                </div>
-              </nav>
+                </nav>
             </div>
 
             {/* Center - Logo with Kashmir styling - Always visible */}
@@ -209,7 +195,6 @@ export default function Header() {
                 {[
                   { href: '/', label: 'Home' },
                   { href: '/woman', label: 'Woman' },
-                  { href: '/man', label: 'Man' },
                   { href: '/products', label: 'Shop All' },
                   { href: '/about', label: 'Our Story' },
                   { href: '/contact', label: 'Contact' },
